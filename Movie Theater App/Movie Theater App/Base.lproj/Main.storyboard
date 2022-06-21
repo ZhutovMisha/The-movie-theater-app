@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hoy-Ym-pqO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Hot & New-->
         <scene sceneID="dNa-rl-nsL">
             <objects>
                 <viewController id="gni-pL-Stj" sceneMemberID="viewController">
@@ -18,13 +18,13 @@
                         <viewLayoutGuide key="safeArea" id="E7o-x0-Mw4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="V9J-ax-OE4"/>
+                    <tabBarItem key="tabBarItem" title="Hot &amp; New" image="play.square.fill" catalog="system" id="V9J-ax-OE4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHF-HS-CMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-507" y="935"/>
         </scene>
-        <!--Item 1-->
+        <!--Downloads-->
         <scene sceneID="XGn-Tc-cXm">
             <objects>
                 <viewController id="EoY-Y1-DTm" sceneMemberID="viewController">
@@ -34,22 +34,23 @@
                         <viewLayoutGuide key="safeArea" id="DLu-vg-X3V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="FVG-wh-F0j"/>
+                    <tabBarItem key="tabBarItem" title="Downloads" image="arrow.down.circle.fill" catalog="system" id="FVG-wh-F0j"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77H-p3-31b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-507" y="-695"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="7ab-03-bYa">
             <objects>
-                <viewController id="Rfk-Pr-KB4" sceneMemberID="viewController">
+                <viewController id="Rfk-Pr-KB4" customClass="HomeViewController" customModule="Movie_Theater_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0A-JN-aNH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0uV-5P-8gy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="QGU-UL-dqe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrD-sS-9uQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,18 +63,21 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QRH-75-XoF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EoY-Y1-DTm" kind="relationship" relationship="viewControllers" id="noJ-tf-Q6g"/>
+                        <segue destination="Rfk-Pr-KB4" kind="relationship" relationship="viewControllers" id="BLK-yC-G81"/>
                         <segue destination="gni-pL-Stj" kind="relationship" relationship="viewControllers" id="LLl-SS-8eW"/>
+                        <segue destination="uwf-FF-zFg" kind="relationship" relationship="viewControllers" id="aWf-26-6us"/>
+                        <segue destination="EoY-Y1-DTm" kind="relationship" relationship="viewControllers" id="noJ-tf-Q6g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ptq-mZ-gKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-506" y="135"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="4mS-px-nnP">
             <objects>
                 <viewController id="uwf-FF-zFg" sceneMemberID="viewController">
@@ -83,6 +87,7 @@
                         <viewLayoutGuide key="safeArea" id="jGo-WS-yxW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="7KS-7j-pSf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCi-v3-4It" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,6 +95,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="play.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
