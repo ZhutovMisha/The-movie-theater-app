@@ -11,6 +11,7 @@ class HotViewController: UIViewController {
     @IBOutlet weak var hotTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHotController()

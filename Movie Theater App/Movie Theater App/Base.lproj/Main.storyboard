@@ -33,7 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="d4n-c9-0xA">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="dK4-XY-emn">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="dK4-XY-emn">
                             <rect key="frame" x="12" y="5.5" width="390" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -184,7 +184,7 @@
                     <connections>
                         <segue destination="PxT-g9-vWW" kind="relationship" relationship="viewControllers" id="BLK-yC-G81"/>
                         <segue destination="EoF-K9-kiM" kind="relationship" relationship="viewControllers" id="LLl-SS-8eW"/>
-                        <segue destination="uwf-FF-zFg" kind="relationship" relationship="viewControllers" id="aWf-26-6us"/>
+                        <segue destination="96O-xL-zbT" kind="relationship" relationship="viewControllers" id="aWf-26-6us"/>
                         <segue destination="EoY-Y1-DTm" kind="relationship" relationship="viewControllers" id="noJ-tf-Q6g"/>
                     </connections>
                 </tabBarController>
@@ -192,21 +192,76 @@
             </objects>
             <point key="canvasLocation" x="402.89855072463769" y="134.59821428571428"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="4mS-px-nnP">
             <objects>
-                <viewController id="uwf-FF-zFg" sceneMemberID="viewController">
+                <viewController id="uwf-FF-zFg" customClass="SearchViewController" customModule="Movie_Theater_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Koq-c0-Ui5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T1r-Wy-Huc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="BXj-1L-kyl" customClass="SearchTableViewCell" customModule="Movie_Theater_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BXj-1L-kyl" id="7ZJ-yY-aZW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squidGameGradient" translatesAutoresizingMaskIntoConstraints="NO" id="MZJ-Lb-XWa">
+                                                    <rect key="frame" x="8" y="4" width="140" height="192"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="Z0A-g1-DOg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gho-zn-uqN">
+                                                    <rect key="frame" x="164" y="4" width="144" height="192"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1u-Xk-YoZ">
+                                                    <rect key="frame" x="328" y="81" width="50" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system" title="">
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="MZJ-Lb-XWa" secondAttribute="bottom" constant="4" id="FQO-JD-UNY"/>
+                                                <constraint firstItem="gho-zn-uqN" firstAttribute="leading" secondItem="MZJ-Lb-XWa" secondAttribute="trailing" constant="16" id="O9H-h9-yZ2"/>
+                                                <constraint firstItem="MZJ-Lb-XWa" firstAttribute="leading" secondItem="7ZJ-yY-aZW" secondAttribute="leading" constant="8" id="Qqp-hc-GGR"/>
+                                                <constraint firstItem="MZJ-Lb-XWa" firstAttribute="top" secondItem="7ZJ-yY-aZW" secondAttribute="top" constant="4" id="egJ-9g-as3"/>
+                                                <constraint firstAttribute="bottom" secondItem="gho-zn-uqN" secondAttribute="bottom" constant="4" id="tgX-0a-Ibz"/>
+                                                <constraint firstItem="gho-zn-uqN" firstAttribute="top" secondItem="7ZJ-yY-aZW" secondAttribute="top" constant="4" id="xPV-zU-t8r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jGo-WS-yxW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jGo-WS-yxW" firstAttribute="trailing" secondItem="T1r-Wy-Huc" secondAttribute="trailing" id="K1f-Xu-3aq"/>
+                            <constraint firstItem="jGo-WS-yxW" firstAttribute="bottom" secondItem="T1r-Wy-Huc" secondAttribute="bottom" id="MGp-pB-3zX"/>
+                            <constraint firstItem="T1r-Wy-Huc" firstAttribute="leading" secondItem="jGo-WS-yxW" secondAttribute="leading" id="S5g-Mx-LSM"/>
+                            <constraint firstItem="T1r-Wy-Huc" firstAttribute="top" secondItem="jGo-WS-yxW" secondAttribute="top" id="kUu-q3-odZ"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="7KS-7j-pSf"/>
+                    <navigationItem key="navigationItem" id="po8-hp-Rnf"/>
+                    <connections>
+                        <outlet property="searchTableView" destination="T1r-Wy-Huc" id="W6k-HS-fdq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCi-v3-4It" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350.7246376811595" y="134.59821428571428"/>
+            <point key="canvasLocation" x="2260.8695652173915" y="134.59821428571428"/>
         </scene>
         <!--Home-->
         <scene sceneID="sqi-0o-IuT">
@@ -246,12 +301,32 @@
             </objects>
             <point key="canvasLocation" x="-507.24637681159425" y="934.82142857142856"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="iGF-70-l3i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="96O-xL-zbT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="7KS-7j-pSf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YJw-fb-Poh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uwf-FF-zFg" kind="relationship" relationship="rootViewController" id="yLW-0n-lhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keT-8d-9Ym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1350.7246376811595" y="134.59821428571428"/>
+        </scene>
     </scenes>
     <resources>
         <image name="165536708556761691-3" width="960" height="1201"/>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="play.square.fill" catalog="system" width="128" height="114"/>
         <image name="squidGameGradient" width="1000" height="1481"/>
         <systemColor name="systemBackgroundColor">
