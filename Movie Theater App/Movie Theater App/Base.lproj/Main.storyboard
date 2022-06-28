@@ -79,11 +79,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Zju-it-zQx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="470"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squidGameGradient" translatesAutoresizingMaskIntoConstraints="NO" id="77J-JM-Hc6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="470"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,7 +96,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="Lct-xK-hmK" customClass="HomeTableViewCell" customModule="Movie_Theater_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="514.5" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="464.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lct-xK-hmK" id="N9L-7E-hVz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -105,7 +105,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-Hv-Zxd">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KCE-CB-JaU">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KCE-CB-JaU">
                                                         <size key="itemSize" width="214" height="174"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -113,13 +113,13 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="LE7-d7-Nqd" customClass="HomeCollectionViewCell" customModule="Movie_Theater_App" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+                                                            <rect key="frame" x="0.0" y="10" width="140" height="180"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lXE-I1-JMd">
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="lXE-I1-JMd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="165536708556761691-3" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-jY-2DQ">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="165536708556761691-3" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-jY-2DQ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -281,6 +281,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3W-mu-R32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1391.304347826087" y="134.59821428571428"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="sGB-F2-nLQ">
+            <objects>
+                <viewController id="jRC-oJ-jzX" customClass="DetailsViewController" customModule="Movie_Theater_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NNp-xe-IUW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="T8p-Kv-Vh2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ScH-nb-Qwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1404" y="929"/>
         </scene>
         <!--Hot & New-->
         <scene sceneID="zRC-Fp-DXQ">

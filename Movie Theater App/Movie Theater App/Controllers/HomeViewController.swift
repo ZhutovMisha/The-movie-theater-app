@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class HomeViewController: UIViewController {
+    public var moviesArray : [Movies] = []
 
     @IBOutlet weak var homeTapBarItem: UITabBarItem!
     @IBOutlet weak var homeTableView: UITableView!
@@ -31,8 +34,6 @@ class HomeViewController: UIViewController {
                                               UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white
     }
-    
-    
 
 
 }
