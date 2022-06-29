@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+import Alamofire
 class HotViewController: UIViewController {
+    public var moviesArray : [Movies] = []
     @IBOutlet weak var hotTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -16,6 +17,26 @@ class HotViewController: UIViewController {
         super.viewDidLoad()
         setupHotController()
         // Do any additional setup after loading the view.
+       downloadJson()
+    }
+    
+    func downloadJson() {
+        
+     let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
+                self.moviesArray = allData.results!
+                DispatchQueue.main.async{
+                    self.hotTableView.reloadData()
+                }
+                
+            }catch{
+                print("JSON is missing")
+            }
+        }
+        
     }
     
     private func setupHotController() {
@@ -26,14 +47,6 @@ class HotViewController: UIViewController {
         segmentedControl.backgroundColor = .white
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

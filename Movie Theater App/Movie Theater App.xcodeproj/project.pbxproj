@@ -135,10 +135,9 @@
 		A287038328621E8A00152415 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A287038428621E9E00152415 /* HomeTableViewExtensions.swift */,
-				A28703A828637A4600152415 /* SearchTableViewExtensions.swift */,
-				A28703992863725100152415 /* HotTableViewExtensions.swift */,
-				A287038628621EAC00152415 /* HomeCollectionViewExtensions.swift */,
+				A28703B4286B102C00152415 /* Home Screen */,
+				A28703B6286B105100152415 /* Hot & New Screen */,
+				A28703B5286B104000152415 /* Search Screen */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -169,6 +168,31 @@
 				A28703AE2866E3DE00152415 /* ResultsMovies.swift */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		A28703B4286B102C00152415 /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A287038428621E9E00152415 /* HomeTableViewExtensions.swift */,
+				A287038628621EAC00152415 /* HomeCollectionViewExtensions.swift */,
+			);
+			path = "Home Screen";
+			sourceTree = "<group>";
+		};
+		A28703B5286B104000152415 /* Search Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A28703A828637A4600152415 /* SearchTableViewExtensions.swift */,
+			);
+			path = "Search Screen";
+			sourceTree = "<group>";
+		};
+		A28703B6286B105100152415 /* Hot & New Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A28703992863725100152415 /* HotTableViewExtensions.swift */,
+			);
+			path = "Hot & New Screen";
 			sourceTree = "<group>";
 		};
 		A9FEAF39CF65E05B882B8E22 /* Frameworks */ = {

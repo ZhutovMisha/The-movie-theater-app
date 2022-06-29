@@ -28,7 +28,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func downloadJson(url: String) {
         
-//        let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+//      let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()

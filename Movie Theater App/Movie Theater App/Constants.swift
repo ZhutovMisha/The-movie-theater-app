@@ -11,3 +11,4 @@ import UIKit
 public let categories = ["Trending Movies" , "Trending TV", "Popular", "Top Rated" ]
 public let nibs = UINib(nibName: "HotTableViewCell", bundle: nil)
 
+
