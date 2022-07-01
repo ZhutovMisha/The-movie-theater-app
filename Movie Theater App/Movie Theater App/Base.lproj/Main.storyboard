@@ -40,6 +40,9 @@
                                 <segment title="TV's"/>
                                 <segment title="Movies"/>
                             </segments>
+                            <connections>
+                                <action selector="didTapSegmentedControl:" destination="gni-pL-Stj" eventType="valueChanged" id="sqV-uZ-sk8"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>

@@ -5,7 +5,6 @@
 //  Created by Brad on 6/22/22.
 //
 
-import Foundation
 import UIKit
 
 extension HotViewController : UITableViewDelegate , UITableViewDataSource {
@@ -17,6 +16,7 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         guard let cell = hotTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
         let item = moviesArray[indexPath.row]
         cell.configureWith(item: item)
+        
 
         return cell
     }
@@ -24,7 +24,7 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         return " ❤️‍🔥 Everyone's Watching "
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        return CGFloat(500)
     }
     
 }

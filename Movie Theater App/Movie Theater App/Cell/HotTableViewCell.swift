@@ -21,11 +21,11 @@ class HotTableViewCell: UITableViewCell {
     }
     func configureWith(item: Movies) {
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w300" + posterPath
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImage.sd_setImage(with: imageURL)
         movieNameLbl.text = item.original_title ?? item.title ?? ""
-//        ratingLbl.text = String(item.vote_average ?? "")
+        ratingLbl.text = String(format: "%.2f" , item.vote_average ?? "")
         movieDescriptionLbl.text = item.overview
         
     }

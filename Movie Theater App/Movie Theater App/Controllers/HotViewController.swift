@@ -48,5 +48,25 @@ class HotViewController: UIViewController {
         
     }
     
+    @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
+        
+//        switch sender.selectedSegmentIndex {
+//            var url = ""
+//        case 0: url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+//        case 1: url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+//        default:
+//            break
+//        }
+    }
+    /*
+    func didTap(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            // tv
+        case 1:
+            // mov
+        }
+    }
+     */
 
 }

@@ -33,6 +33,21 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
                                               UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white
+        
+        let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundColor = .black
+                appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+                
+                navigationController?.navigationBar.standardAppearance = appearance
+                navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+                
+                let appearance2 = UITabBarAppearance()
+                appearance2.configureWithOpaqueBackground()
+                appearance2.backgroundColor = .black
+
+                tabBarController?.tabBar.standardAppearance = appearance2
+                tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBarItem.standardAppearance
     }
 
 

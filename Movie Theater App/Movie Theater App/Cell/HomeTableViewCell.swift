@@ -25,6 +25,7 @@ class HomeTableViewCell: UITableViewCell {
 
     }
     
+   
     
     func downloadJson(url: String) {
         
