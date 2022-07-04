@@ -42,5 +42,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
 //        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsHomePageViewController") as? DetailsHomePageViewController else {return }
 //        navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.textLabel?.frame = header.bounds
+        header.textLabel?.textAlignment = .left
+    }
+    
 }

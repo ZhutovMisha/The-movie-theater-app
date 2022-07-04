@@ -30,7 +30,8 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 10
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          let movie = moviesArray[indexPath.row]
@@ -38,8 +39,8 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
          let storyboard = UIStoryboard(name: "Main", bundle: nil)
          if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
              viewController.movie = movie
-//             self.navigationController?.pushViewController(viewController, animated: true)
-
+             guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+             rootVC.present(viewController, animated: true)
          }
      }
     

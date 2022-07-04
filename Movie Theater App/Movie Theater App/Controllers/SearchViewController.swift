@@ -7,8 +7,10 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
 
+    var  moviesArray : [Movies] = [] 
     @IBOutlet weak var searchTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

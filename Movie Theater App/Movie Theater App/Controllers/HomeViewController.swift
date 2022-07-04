@@ -19,17 +19,21 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         configureNavBar()
+        
         // Do any additional setup after loading the view
     }
     
     //MARK: - Private
     
     private func setupUI() {
-        overrideUserInterfaceStyle = .dark
-        homeTableView.delegate = self
+         homeTableView.delegate = self
         homeTableView.dataSource = self
+        overrideUserInterfaceStyle = .dark
+        
     }
     private func configureNavBar() {
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
                                               UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white

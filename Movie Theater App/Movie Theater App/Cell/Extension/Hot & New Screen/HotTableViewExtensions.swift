@@ -15,7 +15,9 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = hotTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
         let item = moviesArray[indexPath.row]
+        let itemTV = tvArray[indexPath.row]
         cell.configureWith(item: item)
+        cell.configure(item: itemTV)
         
 
         return cell
@@ -24,7 +26,19 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         return " ❤️‍🔥 Everyone's Watching "
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(500)
+        return CGFloat(200)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+             let movie = moviesArray[indexPath.row]
+//            let tvitem = tvArray[indexPath.row]
+             
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
+                 viewController.movie = movie
+                 guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+                 rootVC.present(viewController, animated: true)
+             }
     }
     
 }

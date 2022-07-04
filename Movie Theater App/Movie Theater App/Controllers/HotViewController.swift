@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 class HotViewController: UIViewController {
     public var moviesArray : [Movies] = []
+    public var tvArray : [TV] = []
     @IBOutlet weak var hotTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -17,12 +18,13 @@ class HotViewController: UIViewController {
         super.viewDidLoad()
         setupHotController()
         // Do any additional setup after loading the view.
-       downloadJson()
+//        downloadJsonMovies()
+//        donwloadTrendingTV()
     }
     
-    func downloadJson() {
+    func downloadJsonMovies() {
         
-     let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        let url = "https://api.themoviedb.org/3/movie/upcoming?api_key=35ac442f569f30ef7e79254f7511fb2d&language=en-US&page=1"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -39,6 +41,24 @@ class HotViewController: UIViewController {
         
     }
     
+    func donwloadTrendingTV() {
+        
+        let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                let allData = try decoder.decode(ResultsTV.self, from: response.data!)
+                self.tvArray = allData.results!
+                DispatchQueue.main.async{
+                    self.hotTableView.reloadData()
+                }
+                
+            }catch{
+                print("JSON is missing")
+            }
+        }
+        
+    }
     private func setupHotController() {
         overrideUserInterfaceStyle = .dark
         hotTableView.register(nibs, forCellReuseIdentifier: "cell")
@@ -48,25 +68,19 @@ class HotViewController: UIViewController {
         
     }
     
+    
     @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
         
-//        switch sender.selectedSegmentIndex {
-//            var url = ""
-//        case 0: url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-//        case 1: url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-//        default:
-//            break
-//        }
-    }
-    /*
-    func didTap(_ sender: UISegmentedControl) {
+        
         switch sender.selectedSegmentIndex {
-        case 0:
-            // tv
-        case 1:
-            // mov
+        case 0: downloadJsonMovies()
+            break
+        case 1: donwloadTrendingTV()
+            
+            
+        default:
+            break
         }
     }
-     */
-
+    
 }
