@@ -22,27 +22,18 @@ class HotTableViewCell: UITableViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImage.sd_setImage(with: imageURL)
-        movieNameLbl.text = item.original_title ?? item.title ?? ""
+        movieNameLbl.text = item.title ?? item.original_title ?? " Unkown"
       
         
         
     }
     func configure (item : TV) {
         movieNameLbl.text = item.original_name ?? item.name ?? ""
+        guard let posterPath = item.poster_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/400" + posterPath
+        guard let imageURL = URL(string: imageURLstring) else { return }
     }
     
-  /*
-    func configureTV (item : TV){
-        guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
-        guard let imageURL = URL(string: imageURLstring) else { return }
-        posterImage.sd_setImage(with: imageURL)
-        movieDescriptionLbl.text = item.overview ?? ""
-        ratingLbl.text = String(format: "%.2f" , item.vote_average ?? "")
-        movieNameLbl.text = item.name ?? item.original_name ?? ""
-
-    }
-   */
     
     
 }

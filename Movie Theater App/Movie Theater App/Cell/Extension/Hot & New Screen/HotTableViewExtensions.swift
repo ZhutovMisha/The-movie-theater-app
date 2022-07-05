@@ -9,18 +9,40 @@ import UIKit
 
 extension HotViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesArray.count
+        switch segmentedControl.selectedSegmentIndex{
+        case 0 :
+            return moviesArray.count
+            
+        case 1:
+            return tvArray.count
+        default:
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = hotTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
-        let item = moviesArray[indexPath.row]
-        let itemTV = tvArray[indexPath.row]
-        cell.configureWith(item: item)
-        cell.configure(item: itemTV)
         
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            let item = moviesArray[indexPath.row]
+            cell.configureWith(item: item)
 
-        return cell
+
+//            downloadJsonMovies()
+        case 1:
+            let itemTV = tvArray[indexPath.row]
+            cell.configure(item: itemTV)
+
+
+            donwloadTrendingTV()
+            
+            
+        default:
+            return UITableViewCell()
+        }
+return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return " ❤️‍🔥 Everyone's Watching "

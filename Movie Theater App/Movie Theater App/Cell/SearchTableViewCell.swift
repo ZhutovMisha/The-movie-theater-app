@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-
 class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagePosterSearch: UIImageView!
@@ -16,13 +15,18 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureWith (item : Movies) {
+        guard let posterPath = item.poster_path  else { return }
+        let imageURLString  = "https://image.tmdb.org/t/p/w500" + posterPath
+        guard let imageURl = URL(string: imageURLString) else { return }
+        imagePosterSearch.sd_setImage(with: imageURl)
+
+        movieLbl.text = item.title ?? item.original_title ?? ""
+
+        }
+
+    
 }
 
-func configureWith (item : Movies) {
-    guard let posterPath = item.poster_path  else { return }
-    let imageURLString  = "https://image.tmdb.org/t/p/w500" + posterPath
-    guard let imageURl = URL(string: imageURLString) else { return }
-    
-    
-    
-    }
+

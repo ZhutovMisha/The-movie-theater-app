@@ -11,9 +11,10 @@ struct Constants {
 class APIcaller{
     static let shared  = APIcaller()
     
-    func getTrendingMovies (completion : @escaping(String) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/3/trending/all/day?\(Constants.APIKEY)") else {return }
+//    func getTrendingMovies (completion : @escaping(String) -> Void) {
+//        guard let url = URL(string: "\(Constants.baseURL)/3/trending/all/day?\(Constants.APIKEY)") else {return }
+    
         
-    }
+//    }
     
 }

@@ -18,9 +18,10 @@ class HotViewController: UIViewController {
         super.viewDidLoad()
         setupHotController()
         // Do any additional setup after loading the view.
-//        downloadJsonMovies()
+        downloadJsonMovies()
 //        donwloadTrendingTV()
     }
+    
     
     func downloadJsonMovies() {
         
@@ -59,6 +60,7 @@ class HotViewController: UIViewController {
         }
         
     }
+    
     private func setupHotController() {
         overrideUserInterfaceStyle = .dark
         hotTableView.register(nibs, forCellReuseIdentifier: "cell")
