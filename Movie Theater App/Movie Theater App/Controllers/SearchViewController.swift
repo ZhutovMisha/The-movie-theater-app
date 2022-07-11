@@ -9,8 +9,22 @@ import UIKit
 
 
 class SearchViewController: UIViewController {
-     var moviesArray : [Movies] = []
 
+    
+     var moviesArray : [Movies] = []
+     var filteredMovies : [Movies] = []
+    let searchController = UISearchController(searchResultsController: nil)
+
+    var isFiltering : Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    var searchBarIsEmpty : Bool{
+    
+    guard let text = searchController.searchBar.text  else { return  false   }
+    return text.isEmpty
+    }
+    
     @IBOutlet weak var searchTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +35,16 @@ class SearchViewController: UIViewController {
     }
     
     private func setupSearchPage() {
-        let searchController = UISearchController()
-//        searchController.searchBar.searchBarStyle = .minimal
-        navigationItem.searchController = searchController
         
+        // SearchController Settings
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for a movie"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+//        var textFieldForSearchBar = searchController.value(forKey: "searchField") as? UITextField
+//        textFieldForSearchBar?.textColor = .white
+        searchController.searchBar.searchTextField.textColor = .white
         
         overrideUserInterfaceStyle = .dark
         
@@ -69,8 +89,6 @@ class SearchViewController: UIViewController {
         }
         
     }
-    
-  
-  
 
 }
+

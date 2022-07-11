@@ -12,10 +12,35 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     
-    func configureWith(item: Movies) {
-        guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w400" + posterPath
+    func configureMovie(item: Movies) {
+        guard let posterPath = item.backdrop_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
     }
+    
+    func configureTV(item: TV) {
+
+        guard let posterPath = item.poster_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        guard let imageURL = URL(string: imageURLstring) else { return }
+        posterImageView.sd_setImage(with: imageURL)
+    }
+    
+    func configurePopular(item: PopularMedia) {
+
+        guard let posterPath = item.poster_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        guard let imageURL = URL(string: imageURLstring) else { return }
+        posterImageView.sd_setImage(with: imageURL)
+    }
+    
+    func configureUpcoming(item: UpcomingMedia) {
+
+        guard let posterPath = item.poster_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        guard let imageURL = URL(string: imageURLstring) else { return }
+        posterImageView.sd_setImage(with: imageURL)
+    }
+    
 }

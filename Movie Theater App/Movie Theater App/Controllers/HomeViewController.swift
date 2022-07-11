@@ -20,13 +20,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         configureNavBar()
+        playVideo()
+        
         
         // Do any additional setup after loading the view
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        playVideo()
-    }
+    
     
     //MARK: - Private
     
@@ -38,11 +37,12 @@ class HomeViewController: UIViewController {
         overrideUserInterfaceStyle = .dark
         
     }
+    
     private func configureNavBar() {
         
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
-        //        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
-        //                                              UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
+                navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
+                                                      UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white
         
         let appearance = UINavigationBarAppearance()
@@ -61,22 +61,13 @@ class HomeViewController: UIViewController {
         tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBarItem.standardAppearance
     }
     
-    func setupHeader() -> UIView? {
-        guard let path = Bundle.main.path(forResource: "video", ofType: "avi") else { return nil }
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 200 , height: 200))
-        let player = AVPlayer(url:URL(fileURLWithPath: path))
-        let playerLayer = AVPlayerLayer(player: player)
-        player.volume = 0
-        
-        videLayer.layer.addSublayer(playerLayer)
-        player.play()
-        return headerView
-    }
+
     
     func playVideo() {
-        guard let path = Bundle.main.path(forResource: "video", ofType: "avi") else { return }
+        guard let path = Bundle.main.path(forResource: "video", ofType: ".mp4") else { return }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = videLayer.bounds
         playerLayer.videoGravity = .resizeAspectFill
         player.volume = 0
         videLayer.layer.addSublayer(playerLayer)

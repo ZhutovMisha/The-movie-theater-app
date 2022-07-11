@@ -15,13 +15,24 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchTableViewCell else {return UITableViewCell() }
-        let item = moviesArray[indexPath.row]
+        var item : Movies
+        if isFiltering {
+             item = filteredMovies[indexPath.row]
+            
+        }else {
+             item = moviesArray[indexPath.row]
+        }
         
         cell.configureWith(item: item )
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering{
+            return filteredMovies.count
+        } else {
+            moviesArray.count
+        }
         return moviesArray.count
     }
     
@@ -36,5 +47,22 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    
+}
+
+extension SearchViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+//
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+     func  filterContentForSearchText(_ searchText : String) {
+         filteredMovies = moviesArray.filter({ (movie:Movies) -> Bool in
+             return (movie.title?.lowercased().contains(searchText.lowercased()))!
+             
+         })
+         searchTableView.reloadData()
+        
+    }
     
 }

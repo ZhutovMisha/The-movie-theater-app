@@ -48,7 +48,7 @@ return cell
         return " ❤️‍🔥 Everyone's Watching "
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(200)
+        return CGFloat(220)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        

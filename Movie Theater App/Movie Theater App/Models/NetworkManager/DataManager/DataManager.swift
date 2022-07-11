@@ -9,15 +9,38 @@ import Foundation
 import RealmSwift
 
 struct DataManager {
-    let realm = try? Realm()
+    
+   private   let realm = try? Realm()
     
     //MARK: -Realm
     
-    func saveMovie() {
-         
+    func save(_ movie  : Movies?) {
+        
+        guard let movie = movie else {return}
+
+        let movieRealm = MovieRealm()
+ 
+        movieRealm.name = movie.title ?? "Unkown"
+        movieRealm.overview = movie.overview ?? "Unkown"
+        movieRealm.date = movie.release_date ??  "Unkown"
+        movieRealm.imagePath = movie.poster_path ?? "Unkown"
+        
+        
+        try?realm?.write{
+            realm?.add(movieRealm)
+        }
         
     }
-    func getMovie(){
+    
+    func getMovies() -> [MovieRealm] {
+        var movies : [MovieRealm] = []
+        guard let moviesResult = realm?.objects(MovieRealm.self) else { return [] }
+        for movie in moviesResult {
+            movies.append(movie)
+        }
+        return movies
         
     }
 }
+
+

@@ -36,7 +36,7 @@ class HotViewController: UIViewController {
                 }
                 
             }catch{
-                print("JSON is missing")
+                print(error.localizedDescription)
             }
         }
         
