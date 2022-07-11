@@ -19,10 +19,20 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         var url = ""
         
         switch indexPath.section {
-        case 0: cell.downloadMovies()
-        case 1: cell.downloadTV()
-        case 2: cell.downloadPopularMedia()
-        case 3: cell.downloadUpcomingMedia()
+        case 0:
+            cell.type = .movie
+            cell.downloadMovies()
+            
+        case 1:
+            cell.type = .TV
+            cell.downloadTV()
+        case 2:
+            cell.type = .popular
+            cell.downloadPopularMedia()
+            
+        case 3:
+            cell.type = .upcoming
+            cell.downloadUpcomingMedia()
 
         default: break
         }

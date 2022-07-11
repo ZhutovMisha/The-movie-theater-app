@@ -13,9 +13,12 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section{
-        case 0 : return moviesArray.count
-        case 1: return tvArray.count
+        switch type{
+        case .movie : return moviesArray.count
+        case .TV : return tvArray.count
+        case .popular : return popularArray.count
+        case.upcoming : return upcomingArray.count
+            
         default:
             return 0
         }
@@ -25,15 +28,21 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         
-        switch indexPath.item{
-        case 0 : let item = moviesArray[indexPath.row]
+        switch type {
+        case .movie :
+            let item = moviesArray[indexPath.row]
             cell.configureMovie(item: item)
-            //        case 1: let item = tvArray[indexPath.row]
-            //            cell.configureTV(item: item)
-            //        case 2: let item = popularArray[indexPath.row]
-            //            cell.configurePopular(item: item)
-            //        case 3: let item = upcomingArray[indexPath.row]
-            //            cell.configureUpcoming(item: item)
+            
+        case .TV:
+            let item = tvArray[indexPath.row]
+                        cell.configureTV(item: item)
+            
+        case .popular:
+            let item = popularArray[indexPath.row]
+                        cell.configurePopular(item: item)
+            
+        case .upcoming: let item = upcomingArray[indexPath.row]
+                        cell.configureUpcoming(item: item)
         default:
             break
         }
@@ -50,69 +59,70 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = moviesArray[indexPath.row]
-        
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
-            viewController.movie = movie
-            guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
-            rootVC.present(viewController, animated: true)
-            
+//        let movie = moviesArray[indexPath.row]
+//        
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
+//            viewController.movie = movie
+//            guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+//            rootVC.present(viewController, animated: true)
+//
             
             
             //MARK: - ViewController Push
             
-            //        switch indexPath.item {
-            //        case 0 :    let movie = moviesArray[indexPath.row]
-            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //
-            //            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-            //
-            //            let model = DetailsModel(movieTitleLabel: movie.title, movieDescriptionLbl: movie.overview, ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language, movieTypeLbl: movie.media_type, releaseDateLbl: movie.release_date)
-            //            viewcontroller.configureTest(model: model)
-            //            viewcontroller.movie = movie
-            //            pushViewController(viewContoller: viewcontroller)
-            //
-            //        case 1:    let tv = tvArray[indexPath.row]
-            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //
-            //            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-            //
-            //            let model = DetailsModel(movieTitleLabel: tv.name, movieDescriptionLbl: tv.overview, ratingLbl: String(format : "%.2f",tv.vote_average!) , languageLbl: tv.original_language, movieTypeLbl: tv.media_type, releaseDateLbl: tv.first_air_date)
-            //            viewcontroller.configureTest(model: model)
-            //            viewcontroller.tv = tv
-            //            pushViewController(viewContoller: viewcontroller)
-            //
-            //        case 2:    let popular = popularArray[indexPath.row]
-            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //
-            //            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-            //
-            //            let model = DetailsModel(movieTitleLabel: popular.title, movieDescriptionLbl: popular.overview, ratingLbl: String(format : "%.2f",popular.vote_average!) , languageLbl: popular.original_language, releaseDateLbl: popular.release_date)
-            //            viewcontroller.configureTest(model: model)
-            //            viewcontroller.popular = popular
-            //            pushViewController(viewContoller: viewcontroller)
-            //
-            //        case 3:    let upcoming = upcomingArray[indexPath.row]
-            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //
-            //            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-            //
-            //            let model = DetailsModel(movieTitleLabel: upcoming.title, movieDescriptionLbl: upcoming.overview, ratingLbl: String(format : "%.2f",upcoming.vote_average!) , languageLbl: upcoming.original_language, releaseDateLbl: upcoming.release_date)
-            //            viewcontroller.configureTest(model: model)
-            //            viewcontroller.upcoming = upcoming
-            //            pushViewController(viewContoller: viewcontroller)
-            //
-            //        default : break
-            //        }
+                    switch type {
+                    case .movie :
+                        let movie = moviesArray[indexPath.row]
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            
+                        let model = DetailsModel(movieTitleLabel: movie.title, movieDescriptionLbl: movie.overview, ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language, movieTypeLbl: movie.media_type, releaseDateLbl: movie.release_date)
+                        viewcontroller.configureTest(model: model)
+                        viewcontroller.movie = movie
+                        pushViewController(viewContoller: viewcontroller)
+            
+                    case .TV :    let tv = tvArray[indexPath.row]
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            
+                        let model = DetailsModel(movieTitleLabel: tv.name, movieDescriptionLbl: tv.overview, ratingLbl: String(format : "%.2f",tv.vote_average!) , languageLbl: tv.original_language, movieTypeLbl: tv.media_type, releaseDateLbl: tv.first_air_date)
+                        viewcontroller.configureTest(model: model)
+                        viewcontroller.tv = tv
+                        pushViewController(viewContoller: viewcontroller)
+            
+                    case .popular:    let popular = popularArray[indexPath.row]
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            
+                        let model = DetailsModel(movieTitleLabel: popular.title, movieDescriptionLbl: popular.overview, ratingLbl: String(format : "%.2f",popular.vote_average!) , languageLbl: popular.original_language, releaseDateLbl: popular.release_date)
+                        viewcontroller.configureTest(model: model)
+                        viewcontroller.popular = popular
+                        pushViewController(viewContoller: viewcontroller)
+            
+                    case .upcoming:    let upcoming = upcomingArray[indexPath.row]
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            
+                        let model = DetailsModel(movieTitleLabel: upcoming.title, movieDescriptionLbl: upcoming.overview, ratingLbl: String(format : "%.2f",upcoming.vote_average!) , languageLbl: upcoming.original_language, releaseDateLbl: upcoming.release_date)
+                        viewcontroller.configureTest(model: model)
+                        viewcontroller.upcoming = upcoming
+                        pushViewController(viewContoller: viewcontroller)
+            
+                    default : break
+                    }
             
             
             
         }
         
     }
-}
+
 
 
 

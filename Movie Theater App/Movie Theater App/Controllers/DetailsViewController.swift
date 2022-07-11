@@ -21,6 +21,8 @@ struct  DetailsModel {
     
 }
 
+
+
 class DetailsViewController: UIViewController {
     
     @IBOutlet weak var movieImageView: UIImageView!
@@ -99,7 +101,7 @@ class DetailsViewController: UIViewController {
     }
     
     func configureTest( model : DetailsModel) {
-//        movieTitleLabel.text = model.movieTitleLabel
+        movieTitleLabel.text = model.movieTitleLabel
         movieDescriptionLbl.text = model.movieDescriptionLbl
         movieTypeLbl.text = model.movieTypeLbl
         languageLbl.text = model.languageLbl

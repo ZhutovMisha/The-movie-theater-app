@@ -18,6 +18,8 @@ enum CollectionType {
 class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var homeCollectionView: UICollectionView!
+    var type: CollectionType = .movie
+    
     var moviesArray : [Movies] = []
     var tvArray : [TV] = []
     var popularArray : [PopularMedia] = []
