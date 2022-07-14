@@ -12,12 +12,13 @@ import Alamofire
 
 
 struct  DetailsModel {
-    var movieTitleLabel : String?
-    var movieDescriptionLbl : String?
-    var ratingLbl : String?
-    var languageLbl : String?
-    var movieTypeLbl : String?
-    var releaseDateLbl: String?
+    
+    var movieTitleLabel : String
+    var movieDescriptionLbl : String
+    var ratingLbl : String
+    var languageLbl : String
+    var releaseDateLbl: String
+    var movieImageView : UIImage
     
 }
 
@@ -37,6 +38,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var movieTypeLbl: UILabel!
     @IBOutlet weak var releaseDateLbl: UILabel!
     
+    @IBOutlet var viewBackGround: UIView!
     var movie: Movies?
     var tv : TV?
     var popular : PopularMedia?
@@ -44,8 +46,9 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .dark
         
+        overrideUserInterfaceStyle
+        viewBackGround.backgroundColor = .red
 //        configure()
         
     }
@@ -71,42 +74,45 @@ class DetailsViewController: UIViewController {
     //MARK: - Switch sype. Doesn't work. ASK
     
     
-    func configure() {
-        
-        movieTitleLabel.text = tv?.name ??
-        movie?.title ??
-        popular?.title ??
-        upcoming?.title ??
-        "Unknown"
-        
-        movieDescriptionLbl.text = movie?.overview ?? tv?.overview ?? popular?.title ?? upcoming?.title ?? "Unknown"
-        
-        ratingLbl.text = String(format : "%.2f", movie?.vote_average ??  tv?.vote_average ?? upcoming?.vote_average ?? popular?.vote_average ??
-                                "Unknown")
-        
-        languageLbl.text = movie?.original_language ?? tv?.original_language ?? popular?.title ?? upcoming?.original_language ?? "Unknown"
-        
-        movieTypeLbl.text = movie?.media_type ?? tv?.media_type ?? "Unkown"
-        
-        guard let posterPath = movie?.poster_path else { return }
-        
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
-        
-        guard let imageURL = URL(string: imageURLstring) else { return }
-        
-        movieImageView.sd_setImage(with: imageURL)
-        
-        releaseDateLbl.text = movie?.release_date
-        
-    }
+//    func configure() {
+//
+//
+//        movieTitleLabel.text = tv?.name ??
+//        movie?.title ??
+//        popular?.title ??
+//        upcoming?.title ??
+//        "Unknown"
+//
+//        movieDescriptionLbl.text = movie?.overview ?? tv?.overview ?? popular?.title ?? upcoming?.title ?? "Unknown"
+//
+//        ratingLbl.text = String(format : "%.2f", movie?.vote_average ??  tv?.vote_average ?? upcoming?.vote_average ?? popular?.vote_average ??
+//                                "Unknown")
+//
+//        languageLbl.text = movie?.original_language ?? tv?.original_language ?? popular?.title ?? upcoming?.original_language ?? "Unknown"
+//
+//        movieTypeLbl.text = movie?.media_type ?? tv?.media_type ?? "Unkown"
+//
+//        guard let posterPath = movie?.backdrop_path else { return }
+//
+//        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+//
+//        guard let imageURL = URL(string: imageURLstring) else { return }
+//
+//        movieImageView.sd_setImage(with: imageURL)
+//
+//        releaseDateLbl.text = movie?.release_date
+//
+//    }
+//
     
     func configureTest( model : DetailsModel) {
         movieTitleLabel.text = model.movieTitleLabel
         movieDescriptionLbl.text = model.movieDescriptionLbl
-        movieTypeLbl.text = model.movieTypeLbl
         languageLbl.text = model.languageLbl
         releaseDateLbl.text = model.releaseDateLbl
         ratingLbl.text = model.ratingLbl
+        movieImageView.image = model.movieImageView
+        
     }
     
    

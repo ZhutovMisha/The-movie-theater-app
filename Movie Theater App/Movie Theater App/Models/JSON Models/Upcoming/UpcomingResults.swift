@@ -27,6 +27,6 @@ struct UpcomingResults : Codable {
 		case total_pages = "total_pages"
 		case total_results = "total_results"
 	}
-
+    
 	
 }

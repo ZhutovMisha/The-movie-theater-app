@@ -11,7 +11,7 @@ import RealmSwift
 class MovieRealm : Object {
     
     @objc dynamic var name = ""
-    @objc dynamic var imagePath = ""
+    @objc dynamic var imagePath : String?
 //    @objc dynamic var vote = 0
     @objc dynamic var overview = ""
     @objc dynamic var  date = ""

@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -59,6 +59,7 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
 //        let movie = moviesArray[indexPath.row]
 //        
 //        
@@ -68,56 +69,91 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
 //            guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
 //            rootVC.present(viewController, animated: true)
 //
-            
+//        }
+//    }
+//    
+//}
             
             //MARK: - ViewController Push
             
                     switch type {
+                        
                     case .movie :
                         let movie = moviesArray[indexPath.row]
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
                         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
             
-                        let model = DetailsModel(movieTitleLabel: movie.title, movieDescriptionLbl: movie.overview, ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language, movieTypeLbl: movie.media_type, releaseDateLbl: movie.release_date)
+                        let url = URL(string: "https://image.tmdb.org/t/p/w500" + movie.poster_path!)
+                        let data = try? Data(contentsOf: url!)
+                        let image = UIImage(data: data!)
+            
+                        let model = DetailsModel(movieTitleLabel: movie.title ?? "", movieDescriptionLbl: movie.overview ?? "", ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language ?? "",  releaseDateLbl: movie.release_date ?? "", movieImageView: image!)
+                        
+                        viewcontroller.loadView()
+                        
                         viewcontroller.configureTest(model: model)
                         viewcontroller.movie = movie
                         pushViewController(viewContoller: viewcontroller)
             
                     case .TV :    let tv = tvArray[indexPath.row]
+
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
                         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+                        
+//                        let image = UIImageView()
+//                        image.sd_setImage(with: "https://image.tmdb.org/t/p/w500" + tv.poster_path)
+                        
+                        let url = URL(string: "https://image.tmdb.org/t/p/w500" + tv.backdrop_path!)
+                        let data = try? Data(contentsOf: url!)
+                        let image = UIImage(data: data!)
             
-                        let model = DetailsModel(movieTitleLabel: tv.name, movieDescriptionLbl: tv.overview, ratingLbl: String(format : "%.2f",tv.vote_average!) , languageLbl: tv.original_language, movieTypeLbl: tv.media_type, releaseDateLbl: tv.first_air_date)
+                        let model = DetailsModel(movieTitleLabel: tv.name ?? "" , movieDescriptionLbl: tv.overview ?? "" , ratingLbl: String(format : "%.2f",tv.vote_average!) ?? ""  , languageLbl: tv.original_language ?? "",  releaseDateLbl: tv.first_air_date ?? "", movieImageView: image!)
+                        
+                        viewcontroller.loadView()
+
                         viewcontroller.configureTest(model: model)
                         viewcontroller.tv = tv
                         pushViewController(viewContoller: viewcontroller)
             
                     case .popular:    let popular = popularArray[indexPath.row]
+
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
                         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+                        
+                        let url = URL(string: "https://image.tmdb.org/t/p/w500" + popular.poster_path!)
+                        let data = try? Data(contentsOf: url!)
+                        let image = UIImage(data: data!)
             
-                        let model = DetailsModel(movieTitleLabel: popular.title, movieDescriptionLbl: popular.overview, ratingLbl: String(format : "%.2f",popular.vote_average!) , languageLbl: popular.original_language, releaseDateLbl: popular.release_date)
+            
+                        let model = DetailsModel(movieTitleLabel: popular.title ?? "", movieDescriptionLbl: popular.overview ?? "", ratingLbl: String(format : "%.2f",popular.vote_average!) , languageLbl: popular.original_language ?? "" , releaseDateLbl: popular.release_date ?? "", movieImageView: image!)
+                        viewcontroller.loadView()
+
                         viewcontroller.configureTest(model: model)
                         viewcontroller.popular = popular
                         pushViewController(viewContoller: viewcontroller)
             
                     case .upcoming:    let upcoming = upcomingArray[indexPath.row]
+
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
                         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+                        
+                        let url = URL(string: "https://image.tmdb.org/t/p/w500" + upcoming.poster_path!)
+                        let data = try? Data(contentsOf: url!)
+                        let image = UIImage(data: data!)
             
-                        let model = DetailsModel(movieTitleLabel: upcoming.title, movieDescriptionLbl: upcoming.overview, ratingLbl: String(format : "%.2f",upcoming.vote_average!) , languageLbl: upcoming.original_language, releaseDateLbl: upcoming.release_date)
+                        let model = DetailsModel(movieTitleLabel: upcoming.title ?? "" , movieDescriptionLbl: upcoming.overview ?? "" , ratingLbl: String(format : "%.2f",upcoming.vote_average!)  ?? "" , languageLbl: upcoming.original_language ?? "",  releaseDateLbl: upcoming.release_date ?? "", movieImageView: image!)
+                        viewcontroller.loadView()
+
                         viewcontroller.configureTest(model: model)
                         viewcontroller.upcoming = upcoming
                         pushViewController(viewContoller: viewcontroller)
             
                     default : break
                     }
-            
-            
             
         }
         
@@ -131,3 +167,4 @@ private func pushViewController(viewContoller: UIViewController) {
     guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
     rootVC.present(viewContoller, animated: true)
 }
+

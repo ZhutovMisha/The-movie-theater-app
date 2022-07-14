@@ -98,7 +98,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imagePosterView" destination="nk0-dJ-ATw" id="Inb-Ow-fVy"/>
+                                            <outlet property="imagePosterPath" destination="nk0-dJ-ATw" id="2QJ-UB-UQ4"/>
                                             <outlet property="movieNameLbl" destination="1My-7m-hyc" id="yf8-a6-nPE"/>
                                         </connections>
                                     </tableViewCell>
@@ -537,6 +537,7 @@
                         <outlet property="movieTypeLbl" destination="KgJ-4w-LCB" id="dO6-yp-wQs"/>
                         <outlet property="ratingLbl" destination="x7o-VK-F4X" id="cL3-fg-NYT"/>
                         <outlet property="releaseDateLbl" destination="aR6-PH-HcE" id="Wp2-3k-531"/>
+                        <outlet property="viewBackGround" destination="NNp-xe-IUW" id="IXn-hK-hT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScH-nb-Qwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

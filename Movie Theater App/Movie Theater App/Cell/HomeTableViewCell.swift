@@ -16,6 +16,7 @@ enum CollectionType {
 }
 
 class HomeTableViewCell: UITableViewCell {
+    let networkManager = NetworkManager.shared
     
     @IBOutlet weak var homeCollectionView: UICollectionView!
     var type: CollectionType = .movie
@@ -39,68 +40,6 @@ class HomeTableViewCell: UITableViewCell {
         
         
     }
-    
-    /*
-     func configureCellWith(type: CollectionType) {
-     
-     var url = ""
-     var model = ResultsMovies.self
-     
-     switch type {
-     case .movie:
-     url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-     model = ResultsMovies.self
-     case .TV:
-     url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-     model = ResultsMovies.self
-     case .popular:
-     url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-     model = ResultsMovies.self
-     case .upcoming:
-     url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-     model = ResultsMovies.self
-     }
-     
-     getRequest(url: url, model: model)
-     }
-     
-     private func getRequest<T: Decodable>(url: String, model: T.Type, array: Codable) {
-     AF.request(url).responseJSON { response in
-     do {
-     let decoder = JSONDecoder()
-     let allData = try decoder.decode(model, from: response.data!)
-     array = allData.results!
-     DispatchQueue.main.async{
-     self.homeCollectionView.reloadData()
-     }
-     }catch{
-     print("JSON is missing")
-     }
-     }
-     }
-     */
-    
-    
-    
-    /*
-     func downloadJson(url: String) {
-     
-     //      let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
-     AF.request(url).responseJSON { response in
-     do{
-     let decoder = JSONDecoder()
-     let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
-     self.moviesArray = allData.results!
-     DispatchQueue.main.async{
-     self.homeCollectionView.reloadData()
-     }
-     }catch{
-     print("JSON is missing")
-     }
-     }
-     
-     }
-     */
     
     func downloadMovies() {
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"

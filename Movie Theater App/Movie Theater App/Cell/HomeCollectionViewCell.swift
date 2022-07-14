@@ -17,6 +17,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
+        posterImageView.layer.cornerRadius = 20
+
     }
     
     func configureTV(item: TV) {
@@ -25,6 +27,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
+        posterImageView.layer.cornerRadius = 20
     }
     
     func configurePopular(item: PopularMedia) {
@@ -33,6 +36,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
+        posterImageView.layer.cornerRadius = 20
+
     }
     
     func configureUpcoming(item: UpcomingMedia) {
@@ -41,6 +46,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
+        posterImageView.layer.cornerRadius = 20
+
     }
     
 }

@@ -30,7 +30,6 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             cell.configureWith(item: item)
 
 
-//            downloadJsonMovies()
         case 1:
             let itemTV = tvArray[indexPath.row]
             cell.configure(item: itemTV)

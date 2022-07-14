@@ -43,10 +43,7 @@
 		A2FF825428748F81003F7F1C /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF825328748F81003F7F1C /* DownloadTableViewCell.swift */; };
 		A2FF82612875AD5D003F7F1C /* DataMovieRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF82602875AD5D003F7F1C /* DataMovieRealm.swift */; };
 		A2FF82622875D09E003F7F1C /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A2FF825C28759045003F7F1C /* video.mp4 */; };
-		A2FF82662875F4E6003F7F1C /* Json4Swift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF82642875F4E5003F7F1C /* Json4Swift_Base.swift */; };
-		A2FF82672875F4E6003F7F1C /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF82652875F4E6003F7F1C /* Results.swift */; };
 		A2FF826928771F67003F7F1C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF826828771F67003F7F1C /* APIManager.swift */; };
-		A2FF826B28772143003F7F1C /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF826A28772143003F7F1C /* NetworkManagerTest.swift */; };
 		A2FF826D2877275B003F7F1C /* TVJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF826C2877275B003F7F1C /* TVJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,10 +86,7 @@
 		A2FF825328748F81003F7F1C /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
 		A2FF825C28759045003F7F1C /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		A2FF82602875AD5D003F7F1C /* DataMovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMovieRealm.swift; sourceTree = "<group>"; };
-		A2FF82642875F4E5003F7F1C /* Json4Swift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json4Swift_Base.swift; sourceTree = "<group>"; };
-		A2FF82652875F4E6003F7F1C /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		A2FF826828771F67003F7F1C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		A2FF826A28772143003F7F1C /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		A2FF826C2877275B003F7F1C /* TVJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVJSON.swift; sourceTree = "<group>"; };
 		DBC23134A1656AF5439244BA /* Pods-Movie Theater App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Theater App.debug.xcconfig"; path = "Target Support Files/Pods-Movie Theater App/Pods-Movie Theater App.debug.xcconfig"; sourceTree = "<group>"; };
 		EADDBA3A10021C6B3ADC2BA0 /* Pods_Movie_Theater_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Theater_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +189,6 @@
 		A28703AA2866E3A500152415 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2FF82632875F4DB003F7F1C /* Video */,
 				A2FF825528749240003F7F1C /* JSON Models */,
 				A2FF823F287305C7003F7F1C /* NetworkManager */,
 			);
@@ -241,7 +234,6 @@
 			children = (
 				A2FF8240287305DC003F7F1C /* NetworkManager.swift */,
 				A2FF826828771F67003F7F1C /* APIManager.swift */,
-				A2FF826A28772143003F7F1C /* NetworkManagerTest.swift */,
 				A2FF824E28748CA0003F7F1C /* DataManager */,
 			);
 			path = NetworkManager;
@@ -294,15 +286,6 @@
 				A2F8F53E287C51D000834D11 /* Dates.swift */,
 			);
 			path = Upcoming;
-			sourceTree = "<group>";
-		};
-		A2FF82632875F4DB003F7F1C /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				A2FF82642875F4E5003F7F1C /* Json4Swift_Base.swift */,
-				A2FF82652875F4E6003F7F1C /* Results.swift */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		A9FEAF39CF65E05B882B8E22 /* Frameworks */ = {
@@ -443,7 +426,6 @@
 				A2FF825028748CB3003F7F1C /* DataManager.swift in Sources */,
 				A28703AD2866E3C300152415 /* Movies.swift in Sources */,
 				A2F8F53F287C51D000834D11 /* Dates.swift in Sources */,
-				A2FF82672875F4E6003F7F1C /* Results.swift in Sources */,
 				A2FF8241287305DC003F7F1C /* NetworkManager.swift in Sources */,
 				A287036F28621A8900152415 /* HomeViewController.swift in Sources */,
 				A2FF826D2877275B003F7F1C /* TVJSON.swift in Sources */,
@@ -453,11 +435,9 @@
 				A28703A928637A4600152415 /* SearchTableViewExtensions.swift in Sources */,
 				A287036B28621A8900152415 /* AppDelegate.swift in Sources */,
 				A2F8F53D287C519B00834D11 /* UpcomingResults.swift in Sources */,
-				A2FF826B28772143003F7F1C /* NetworkManagerTest.swift in Sources */,
 				A2FF825228748F16003F7F1C /* DownloadViewController.swift in Sources */,
 				A28703A7286378AE00152415 /* SearchTableViewCell.swift in Sources */,
 				A2FF824828732706003F7F1C /* TV.swift in Sources */,
-				A2FF82662875F4E6003F7F1C /* Json4Swift_Base.swift in Sources */,
 				A2FF825428748F81003F7F1C /* DownloadTableViewCell.swift in Sources */,
 				A287037F28621E6900152415 /* HomeTableViewCell.swift in Sources */,
 				A287038528621E9E00152415 /* HomeTableViewExtensions.swift in Sources */,

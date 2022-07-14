@@ -1,6 +1,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 struct Constants {
     
@@ -8,15 +9,23 @@ struct Constants {
     static let baseURL =  "https://api.themoviedb.org"
 }
 
-class APIcaller{
-    static let shared  = APIcaller()
+class NetworkManager {
+    static let shared  = NetworkManager()
+    private init() {}
     
-//    func getTrendingMovies (completion : @escaping(String) -> Void) {
-//        guard let url = URL(string: "\(Constants.baseURL)/3/trending/all/day?\(Constants.APIKEY)") else {return }
-    
+    func performRequest( url : String  , success : @escaping (Data) -> () ,failure : @escaping(Error?) -> () ){
+        guard let url = URL(string : url ) else { failure (nil) ; return  }
         
-//    }
-    
-    
-    
+        AF.request(url).responseJSON { response in
+            guard let data = response.data else { return failure(nil) }
+            success(data)
+        }
+    }
+
 }
+
+
+
+
+
+
