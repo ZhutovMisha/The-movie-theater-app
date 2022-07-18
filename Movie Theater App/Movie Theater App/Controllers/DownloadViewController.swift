@@ -16,7 +16,7 @@ class DownloadViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
       
-
+        print(MovieRealm.self)
         // Do any additional setup after loading the view.
     }
     
@@ -34,15 +34,6 @@ class DownloadViewController: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
@@ -57,8 +48,12 @@ extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  DownloadTableViewCell else  { return UITableViewCell()}
         let item = moviesArray[indexPath.row]
 //        cell.configure(_with: item)
-        cell.movieNameLbl.text = item.name
+        cell.movieNameLbl.text = item.name ?? item.overview ?? item.date ?? "UNKOWN"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Saved Movies"
     }
 }

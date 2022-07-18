@@ -23,7 +23,7 @@ struct DataManager {
         movieRealm.name = movie.title ?? "Unkown"
         movieRealm.overview = movie.overview ?? "Unkown"
         movieRealm.date = movie.release_date ??  "Unkown"
-        movieRealm.imagePath = movie.poster_path ?? "Unkown"
+        movieRealm.posterPath = movie.poster_path ?? "Unkown"
         
         
         try?realm?.write{

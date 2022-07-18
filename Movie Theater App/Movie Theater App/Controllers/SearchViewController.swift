@@ -7,11 +7,24 @@
 import Alamofire
 import UIKit
 
+enum CollectionTypeMedia {
+    case movie
+    case TV
+    case popular
+    case upcoming
+}
 
 class SearchViewController: UIViewController {
 
     
-     var moviesArray : [Movies] = []
+    var type: CollectionTypeMedia = .movie
+
+    var moviesArray : [Movies] = []
+    var tvArray : [TV] = []
+    var popularArray : [PopularMedia] = []
+    var upcomingArray : [UpcomingMedia] = []
+    
+     var moviesArraySearch : [Movies] = []
      var filteredMovies : [Movies] = []
     let searchController = UISearchController(searchResultsController: nil)
 
