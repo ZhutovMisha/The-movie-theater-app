@@ -15,15 +15,16 @@ class DownloadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-      
+        moviesArray = DataManager().getMovies()
+        downloadTableView.reloadData()
         print(MovieRealm.self)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        moviesArray = DataManager().getMovies()
-        downloadTableView.reloadData()
+//        moviesArray = DataManager().getMovies()
+//        downloadTableView.reloadData()
         
     }
     private func setupUI() {

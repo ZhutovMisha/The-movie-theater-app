@@ -13,6 +13,7 @@ class DownloadTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        
     }
     
     func configure (_with item : MovieRealm) {
