@@ -38,8 +38,8 @@
                             <rect key="frame" x="12" y="5.5" width="390" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="TV's"/>
                                 <segment title="Movies"/>
+                                <segment title="TV Show's"/>
                             </segments>
                             <connections>
                                 <action selector="didTapSegmentedControl:" destination="gni-pL-Stj" eventType="valueChanged" id="68m-Ew-kTJ"/>
