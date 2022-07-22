@@ -18,6 +18,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.borderColor = UIColor.white.cgColor
+        posterImageView.layer.borderWidth = 0.5
+        
 
     }
     
@@ -28,6 +31,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.borderColor = UIColor.white.cgColor
+        posterImageView.layer.borderWidth = 0.5
     }
     
     func configurePopular(item: PopularMedia) {
@@ -37,6 +42,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.borderColor = UIColor.white.cgColor
+        posterImageView.layer.borderWidth = 0.5
 
     }
     
@@ -47,6 +54,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.borderColor = UIColor.white.cgColor
+        posterImageView.layer.borderWidth = 0.5
 
     }
     

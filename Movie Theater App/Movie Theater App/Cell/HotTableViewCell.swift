@@ -29,9 +29,10 @@ class HotTableViewCell: UITableViewCell {
     }
     func configure (item : TV) {
         movieNameLbl.text = item.original_name ?? item.name ?? ""
-        guard let posterPath = item.backdrop_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/400" + posterPath
+        guard let posterPath = item.poster_path else { return }
+        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
+        posterImage.sd_setImage(with: imageURL)
     }
     
     

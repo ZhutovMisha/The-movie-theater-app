@@ -46,10 +46,8 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        overrideUserInterfaceStyle = .dark
-//        viewBackGround.backgroundColor = .red
-//        configure()
         
     }
     
@@ -83,6 +81,12 @@ class DetailsViewController: UIViewController {
         releaseDateLbl.text = model.releaseDateLbl
         ratingLbl.text = model.ratingLbl
         movieImageView.image = model.movieImageView
+        movieImageView.layer.borderWidth = 1
+        movieImageView.layer.borderColor = UIColor.yellow.cgColor
+        movieImageView.layer.cornerRadius = 20
+    
+
+        
         
     }
     
