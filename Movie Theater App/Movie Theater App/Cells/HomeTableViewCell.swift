@@ -41,6 +41,11 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
+    private func testDownload() {
+        APImanager.shared.donwloadTrendingMovies { results in
+            
+        }
+    }
     func downloadMovies() {
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
         AF.request(url).responseJSON { response in

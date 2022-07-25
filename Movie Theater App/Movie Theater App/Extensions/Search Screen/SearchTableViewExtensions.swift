@@ -55,7 +55,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource{
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
 
-        let model = DetailsModel(movieTitleLabel: movie.title ?? "", movieDescriptionLbl: movie.overview ?? "", ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language ?? "",  releaseDateLbl: movie.release_date ?? "", movieImageView: image!)
+        let model = DetailsModel(movieTitleLabel: movie.title ?? "", movieDescriptionLbl: movie.overview ?? "", ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language ?? "",  releaseDateLbl: movie.release_date ?? "", movieImageView: image!, movieTypeLbl: movie.media_type ?? "" )
         
         viewcontroller.loadView()
         

@@ -19,6 +19,7 @@ struct  DetailsModel {
     var languageLbl : String
     var releaseDateLbl: String
     var movieImageView : UIImage
+    var movieTypeLbl : String
     
 }
 
@@ -38,7 +39,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var movieTypeLbl: UILabel!
     @IBOutlet weak var releaseDateLbl: UILabel!
     
+    @IBOutlet weak var watchListButton: UIButton!
+    
     @IBOutlet var viewBackGround: UIView!
+    
     var movie: Movies?
     var tv : TV?
     var popular : PopularMedia?
@@ -53,6 +57,7 @@ class DetailsViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        
         let alertController = UIAlertController(title: "Saved Movie", message: "Add to watch list", preferredStyle: .alert)
         let saved = DataManager().save(movie)
         let saveAction = UIAlertAction(title: "Save", style: .default)
@@ -62,6 +67,7 @@ class DetailsViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: deadline){
             alertController.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)
+            
             
         }
         
@@ -81,9 +87,10 @@ class DetailsViewController: UIViewController {
         releaseDateLbl.text = model.releaseDateLbl
         ratingLbl.text = model.ratingLbl
         movieImageView.image = model.movieImageView
+        movieTypeLbl.text = model.movieTypeLbl
         movieImageView.layer.borderWidth = 1
         movieImageView.layer.borderColor = UIColor.yellow.cgColor
-        movieImageView.layer.cornerRadius = 20
+        movieImageView.layer.cornerRadius = 5
     
 
         

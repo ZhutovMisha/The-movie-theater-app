@@ -51,10 +51,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         return 1
 
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsHomePageViewController") as? DetailsHomePageViewController else {return }
-//        navigationController?.pushViewController(vc, animated: true)
-    }
+ 
     
      func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }

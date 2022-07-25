@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZlJ-qt-ycM">
-                                <rect key="frame" x="82" y="295.5" width="250" height="305"/>
+                                <rect key="frame" x="82" y="251.5" width="250" height="393"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-icon-items-cinema-white-background-35291742" translatesAutoresizingMaskIntoConstraints="NO" id="cWk-M3-Zb5">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
@@ -26,8 +26,16 @@
                                             <constraint firstAttribute="width" constant="250" id="s2H-zK-kJL"/>
                                         </constraints>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="oFy-2R-p8a">
+                                        <rect key="frame" x="85" y="258" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Hl9-aC-LRD"/>
+                                            <constraint firstAttribute="height" constant="80" id="IA8-KE-t8f"/>
+                                        </constraints>
+                                        <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Theater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-PG-nY0">
-                                        <rect key="frame" x="9.5" y="258" width="231" height="47"/>
+                                        <rect key="frame" x="9.5" y="346" width="231" height="47"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="36"/>
                                         <color key="textColor" red="0.84983891249999999" green="0.18094867470000001" blue="0.1269235313" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>

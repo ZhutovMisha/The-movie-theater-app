@@ -10,29 +10,28 @@ import UIKit
 class DownloadViewController: UIViewController {
 
     var moviesArray : [MovieRealm] = []
+    private let dataManager = DataManager()
     
     @IBOutlet weak var downloadTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        moviesArray = DataManager().getMovies()
-        downloadTableView.reloadData()
-        print(MovieRealm.self)
-        // Do any additional setup after loading the view.
+        getMovies()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        moviesArray = DataManager().getMovies()
-//        downloadTableView.reloadData()
+        getMovies()
         
     }
     private func setupUI() {
-        overrideUserInterfaceStyle = .dark
         downloadTableView.delegate = self
         downloadTableView.dataSource = self
+    }
     
-        
+    private func getMovies() {
+        moviesArray = dataManager.getMovies()
+        downloadTableView.reloadData()
     }
 
 
@@ -48,8 +47,7 @@ extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  DownloadTableViewCell else  { return UITableViewCell()}
         let item = moviesArray[indexPath.row]
-//        cell.configure(_with: item)
-        cell.movieNameLbl.text = item.name ?? item.overview ?? item.date ?? "UNKOWN"
+        cell.configure(_with: item)
         
         return cell
     }
@@ -57,4 +55,21 @@ extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Saved Movies"
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = moviesArray[indexPath.row]
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let identifier = String(describing: DetailsViewController.self )
+        guard  let viewContoller = storyBoard.instantiateViewController(withIdentifier: identifier) as? DetailsViewController else { return }
+        
+//        viewContoller.movie = movie
+        
+        pushViewController(viewContoller: viewContoller)
+    }
+    
+}
+
+private func pushViewController(viewContoller: UIViewController) {
+    guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+    rootVC.present(viewContoller, animated: true)
 }

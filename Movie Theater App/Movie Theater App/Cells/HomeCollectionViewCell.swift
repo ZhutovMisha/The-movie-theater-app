@@ -17,7 +17,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
-        posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
         
@@ -30,7 +30,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
-        posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
     }
@@ -41,7 +41,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
-        posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
 
@@ -53,7 +53,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
-        posterImageView.layer.cornerRadius = 20
+        posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
 

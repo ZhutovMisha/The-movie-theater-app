@@ -17,9 +17,8 @@ class HotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHotController()
-        // Do any additional setup after loading the view.
         downloadJsonMovies()
-//        donwloadTrendingTV()
+        donwloadTrendingTV()
     }
     
     

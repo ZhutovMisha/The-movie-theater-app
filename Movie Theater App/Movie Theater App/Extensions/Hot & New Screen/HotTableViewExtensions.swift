@@ -58,11 +58,11 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             viewController.movie = movie
             
             
-            let url = URL(string: "https://image.tmdb.org/t/p/w500" + movie.poster_path!)
-            let data = try? Data(contentsOf: url!)
-            let image = UIImage(data: data!)
+            guard let  url = URL(string: "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "0")) else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            guard  let image = UIImage(data: data) else { return }
             
-            let model = DetailsModel(movieTitleLabel: movie.title ?? "", movieDescriptionLbl: movie.overview ?? "", ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language ?? "",  releaseDateLbl: movie.release_date ?? "", movieImageView: image!)
+            let model = DetailsModel(movieTitleLabel: movie.title ?? "", movieDescriptionLbl: movie.overview ?? "", ratingLbl: String(format : "%.2f",movie.vote_average!) , languageLbl: movie.original_language ?? "",  releaseDateLbl: movie.release_date ?? "", movieImageView: image, movieTypeLbl: movie.media_type ?? "" )
             
             viewController.loadView()
             
@@ -85,11 +85,11 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             //                        let image = UIImageView()
             //                        image.sd_setImage(with: "https://image.tmdb.org/t/p/w500" + tv.poster_path)
             
-            let url = URL(string: "https://image.tmdb.org/t/p/w500" + tv.backdrop_path!)
-            let data = try? Data(contentsOf: url!)
-            let image = UIImage(data: data!)
+            guard let  url = URL(string: "https://image.tmdb.org/t/p/w500" + (tv.poster_path ?? "0")) else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            guard  let image = UIImage(data: data) else { return }
             
-            let model = DetailsModel(movieTitleLabel: tv.name ?? "" , movieDescriptionLbl: tv.overview ?? "" , ratingLbl: String(format : "%.2f",tv.vote_average!) ?? ""  , languageLbl: tv.original_language ?? "",  releaseDateLbl: tv.first_air_date ?? "", movieImageView: image!)
+            let model = DetailsModel(movieTitleLabel: tv.name ?? "" , movieDescriptionLbl: tv.overview ?? "" , ratingLbl: String(format : "%.2f",tv.vote_average!) ?? ""  , languageLbl: tv.original_language ?? "",  releaseDateLbl: tv.first_air_date ?? "", movieImageView: image, movieTypeLbl: tv.media_type ?? "" )
             
             viewcontroller.loadView()
             
