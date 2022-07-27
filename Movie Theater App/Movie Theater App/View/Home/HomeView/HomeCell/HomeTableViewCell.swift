@@ -8,28 +8,21 @@
 import UIKit
 import Alamofire
 
-enum CollectionType {
-    case movie
-    case TV
-    case popular
-    case upcoming
-}
+
 
 class HomeTableViewCell: UITableViewCell {
+    let homeContollerViewModel = HomeViewModel()
+    
     let networkManager = NetworkManager.shared
     
     @IBOutlet weak var homeCollectionView: UICollectionView!
-    var type: CollectionType = .movie
-    
-    var moviesArray : [Movies] = []
-    var tvArray : [TV] = []
-    var popularArray : [PopularMedia] = []
-    var upcomingArray : [UpcomingMedia] = []
+
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
@@ -54,7 +47,7 @@ class HomeTableViewCell: UITableViewCell {
                 guard let data = response.data else { return }
                 let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
                 guard let results = allData.results else { return }
-                self.moviesArray = results
+                self.homeContollerViewModel.moviesArray = results
                 DispatchQueue.main.async{
                     self.homeCollectionView.reloadData()
                 }
@@ -73,7 +66,7 @@ class HomeTableViewCell: UITableViewCell {
                 guard let data = response.data else { return }
                 let allData = try decoder.decode(ResultsTV.self, from: data)
                 guard let results = allData.results else { return }
-                self.tvArray = results
+                self.homeContollerViewModel.tvArray = results
                 DispatchQueue.main.async{
                     self.homeCollectionView.reloadData()
                 }
@@ -91,7 +84,7 @@ class HomeTableViewCell: UITableViewCell {
                 guard let data = response.data  else { return }
                 let allData = try decoder.decode(ResultPopular.self, from: data)
                 guard let results = allData.results else { return }
-                self.popularArray = results
+                self.homeContollerViewModel.popularArray = results
                 
                 
                 DispatchQueue.main.async{
@@ -110,7 +103,7 @@ class HomeTableViewCell: UITableViewCell {
             do{
                 let decoder = JSONDecoder()
                 let allData = try decoder.decode(UpcomingResults.self, from: response.data!)
-                self.upcomingArray = allData.results!
+                self.homeContollerViewModel.upcomingArray = allData.results!
                 DispatchQueue.main.async{
                     self.homeCollectionView.reloadData()
                 }

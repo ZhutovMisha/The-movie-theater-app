@@ -12,15 +12,19 @@ import AVFoundation
 class HomeViewController: UIViewController {
     
     
+    
     @IBOutlet weak var videLayer: UIView!
     @IBOutlet weak var homeTapBarItem: UITabBarItem!
     @IBOutlet weak var homeTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureNavBar()
         playVideo()
+        
         
         
         // Do any additional setup after loading the view

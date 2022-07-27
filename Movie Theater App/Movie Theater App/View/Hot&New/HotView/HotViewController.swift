@@ -8,12 +8,14 @@
 import UIKit
 import Alamofire
 class HotViewController: UIViewController {
-    public var moviesArray : [Movies] = []
-    public var tvArray : [TV] = []
+  
+    
     @IBOutlet weak var hotTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
+    let hotViewModel = HotViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHotController()
@@ -29,7 +31,7 @@ class HotViewController: UIViewController {
             do{
                 let decoder = JSONDecoder()
                 let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
-                self.moviesArray = allData.results!
+                self.hotViewModel.moviesArray = allData.results!
                 DispatchQueue.main.async{
                     self.hotTableView.reloadData()
                 }
@@ -48,7 +50,7 @@ class HotViewController: UIViewController {
             do{
                 let decoder = JSONDecoder()
                 let allData = try decoder.decode(ResultsTV.self, from: response.data!)
-                self.tvArray = allData.results!
+                self.hotViewModel.tvArray = allData.results!
                 DispatchQueue.main.async{
                     self.hotTableView.reloadData()
                 }

@@ -6,10 +6,10 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex{
         case 0 :
-            return moviesArray.count
+            return hotViewModel.moviesArray.count
             
         case 1:
-            return tvArray.count
+            return hotViewModel.tvArray.count
         default:
             return 0
         }
@@ -21,12 +21,12 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            let item = moviesArray[indexPath.row]
+            let item = hotViewModel.moviesArray[indexPath.row]
             cell.configureWith(item: item)
             
             
         case 1:
-            let itemTV = tvArray[indexPath.row]
+            let itemTV = hotViewModel.tvArray[indexPath.row]
             cell.configure(item: itemTV)
             
             
@@ -52,7 +52,7 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         
         
         switch segmentedControl.selectedSegmentIndex{
-        case 0 :        let movie = moviesArray[indexPath.row]
+        case 0 :        let movie = hotViewModel.moviesArray[indexPath.row]
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else {return }
             viewController.movie = movie
@@ -76,7 +76,7 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             
         case 1 :
             
-            let tv = tvArray[indexPath.row]
+            let tv = hotViewModel.tvArray[indexPath.row]
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             

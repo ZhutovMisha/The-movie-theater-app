@@ -47,6 +47,7 @@ class DetailsViewController: UIViewController {
     var tv : TV?
     var popular : PopularMedia?
     var upcoming : UpcomingMedia?
+    var realmMoviesDetails : Movies?
     
     override func viewDidLoad() {
         super.viewDidLoad()

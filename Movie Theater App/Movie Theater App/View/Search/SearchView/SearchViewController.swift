@@ -7,25 +7,12 @@
 import Alamofire
 import UIKit
 
-enum CollectionTypeMedia {
-    case movie
-    case TV
-    case popular
-    case upcoming
-}
 
 class SearchViewController: UIViewController {
 
     
-    var type: CollectionTypeMedia = .movie
-
-    var moviesArray : [Movies] = []
-    var tvArray : [TV] = []
-    var popularArray : [PopularMedia] = []
-    var upcomingArray : [UpcomingMedia] = []
+    let searchViewModel = SearchViewModel()
     
-     var moviesArraySearch : [Movies] = []
-     var filteredMovies : [Movies] = []
     let searchController = UISearchController(searchResultsController: nil)
 
     var isFiltering : Bool {
@@ -91,7 +78,7 @@ class SearchViewController: UIViewController {
             do{
                 let decoder = JSONDecoder()
                 let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
-                self.moviesArray = allData.results!
+                self.searchViewModel.moviesArray = allData.results!
                 DispatchQueue.main.async{
                     self.searchTableView.reloadData()
                 }

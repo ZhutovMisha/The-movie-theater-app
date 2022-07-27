@@ -13,11 +13,11 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch type{
-        case .movie : return moviesArray.count
-        case .TV : return tvArray.count
-        case .popular : return popularArray.count
-        case.upcoming : return upcomingArray.count
+        switch homeContollerViewModel.type{
+        case .movie : return homeContollerViewModel.moviesArray.count
+        case .TV : return homeContollerViewModel.tvArray.count
+        case .popular : return homeContollerViewModel.popularArray.count
+        case.upcoming : return homeContollerViewModel.upcomingArray.count
             
         default:
             return 0
@@ -28,20 +28,20 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         
-        switch type {
+        switch homeContollerViewModel.type {
         case .movie :
-            let item = moviesArray[indexPath.row]
+            let item = homeContollerViewModel.moviesArray[indexPath.row]
             cell.configureMovie(item: item)
             
         case .TV:
-            let item = tvArray[indexPath.row]
+            let item = homeContollerViewModel.tvArray[indexPath.row]
                         cell.configureTV(item: item)
             
         case .popular:
-            let item = popularArray[indexPath.row]
+            let item = homeContollerViewModel.popularArray[indexPath.row]
                         cell.configurePopular(item: item)
             
-        case .upcoming: let item = upcomingArray[indexPath.row]
+        case .upcoming: let item = homeContollerViewModel.upcomingArray[indexPath.row]
                         cell.configureUpcoming(item: item)
         default:
             break
@@ -64,10 +64,10 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
             
             //MARK: - ViewController Push
             
-                    switch type {
+        switch homeContollerViewModel.type {
                         
                     case .movie :
-                        let movie = moviesArray[indexPath.row]
+            let movie = homeContollerViewModel.moviesArray[indexPath.row]
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
                         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
@@ -84,7 +84,7 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
                         viewcontroller.movie = movie
                         pushViewController(viewContoller: viewcontroller)
             
-                    case .TV :    let tv = tvArray[indexPath.row]
+        case .TV :    let tv = homeContollerViewModel.tvArray[indexPath.row]
 
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -103,7 +103,7 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
                         viewcontroller.tv = tv
                         pushViewController(viewContoller: viewcontroller)
             
-                    case .popular:    let popular = popularArray[indexPath.row]
+        case .popular:    let popular = homeContollerViewModel.popularArray[indexPath.row]
 
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -121,7 +121,7 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
                         viewcontroller.popular = popular
                         pushViewController(viewContoller: viewcontroller)
             
-                    case .upcoming:    let upcoming = upcomingArray[indexPath.row]
+        case .upcoming:    let upcoming = homeContollerViewModel.upcomingArray[indexPath.row]
 
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             

@@ -20,18 +20,18 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            cell.type = .movie
+            cell.homeContollerViewModel.type = .movie
             cell.downloadMovies()
             
         case 1:
-            cell.type = .TV
+            cell.homeContollerViewModel.type = .TV
             cell.downloadTV()
         case 2:
-            cell.type = .popular
+            cell.homeContollerViewModel.type = .popular
             cell.downloadPopularMedia()
             
         case 3:
-            cell.type = .upcoming
+            cell.homeContollerViewModel.type = .upcoming
             cell.downloadUpcomingMedia()
 
         default: break
