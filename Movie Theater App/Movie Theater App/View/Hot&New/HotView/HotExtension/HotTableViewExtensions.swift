@@ -17,7 +17,7 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = hotTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
+        guard let cell = hotTableView.dequeueReusableCell(withIdentifier: hotViewModel.identifier, for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -53,12 +53,12 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         
         switch segmentedControl.selectedSegmentIndex{
         case 0 :        let movie = hotViewModel.moviesArray[indexPath.row]
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else {return }
+            let storyboard = UIStoryboard(name: hotViewModel.storyBoardName, bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else {return }
             viewController.movie = movie
             
             
-            guard let  url = URL(string: "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "0")) else { return }
+            guard let  url = URL(string: Constants.imageBaseURL + (movie.poster_path ?? "0")) else { return }
             guard let data = try? Data(contentsOf: url) else { return }
             guard  let image = UIImage(data: data) else { return }
             
@@ -78,14 +78,12 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             
             let tv = hotViewModel.tvArray[indexPath.row]
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: hotViewModel.storyBoardName, bundle: nil)
             
-            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
             
-            //                        let image = UIImageView()
-            //                        image.sd_setImage(with: "https://image.tmdb.org/t/p/w500" + tv.poster_path)
-            
-            guard let  url = URL(string: "https://image.tmdb.org/t/p/w500" + (tv.poster_path ?? "0")) else { return }
+          
+            guard let  url = URL(string: Constants.imageBaseURL + (tv.poster_path ?? "0")) else { return }
             guard let data = try? Data(contentsOf: url) else { return }
             guard  let image = UIImage(data: data) else { return }
             

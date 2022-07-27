@@ -14,20 +14,20 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     func configureMovie(item: Movies) {
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
         
-
+        
     }
     
     func configureTV(item: TV) {
-
+        
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
@@ -36,28 +36,30 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     func configurePopular(item: PopularMedia) {
-
+        
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
-
+        
     }
     
     func configureUpcoming(item: UpcomingMedia) {
-
+        
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = "https://image.tmdb.org/t/p/w500" + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 0.5
-
+        
     }
+    
+    
     
     
 }

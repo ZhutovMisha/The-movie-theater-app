@@ -26,7 +26,7 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeContollerViewModel.idetnifier, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         
         switch homeContollerViewModel.type {
         case .movie :
@@ -68,11 +68,11 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
                         
                     case .movie :
             let movie = homeContollerViewModel.moviesArray[indexPath.row]
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: homeContollerViewModel.storyBoardName , bundle: nil)
             
-                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
             
-                        guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + (movie.poster_path ?? "")) else { return }
+            guard let url = URL(string: Constants.imageBaseURL + (movie.poster_path ?? "")) else { return }
                         guard let data = try? Data(contentsOf: url) else { return }
                         guard let image = UIImage(data: data) else { return }
             
@@ -88,10 +88,10 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
 
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
                         
                         
-                        guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + (tv.poster_path ?? "")) else { return }
+                        guard let url = URL(string: Constants.imageBaseURL + (tv.poster_path ?? "")) else { return }
                         guard let data = try? Data(contentsOf: url) else { return }
                         guard let image = UIImage(data: data) else { return }
             
@@ -105,11 +105,11 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
             
         case .popular:    let popular = homeContollerViewModel.popularArray[indexPath.row]
 
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: homeContollerViewModel.storyBoardName, bundle: nil)
             
-                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
                         
-                        guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + (popular.poster_path ?? "")) else { return }
+                        guard let url = URL(string: Constants.imageBaseURL + (popular.poster_path ?? "")) else { return }
                         guard let data = try? Data(contentsOf: url) else { return }
                         guard let image = UIImage(data: data) else { return }
             
@@ -123,11 +123,11 @@ extension HomeTableViewCell : UICollectionViewDelegate,UICollectionViewDataSourc
             
         case .upcoming:    let upcoming = homeContollerViewModel.upcomingArray[indexPath.row]
 
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: homeContollerViewModel.storyBoardName, bundle: nil)
             
-                        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+            guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
                         
-                        guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + (upcoming.poster_path ?? "")) else { return }
+                        guard let url = URL(string: Constants.imageBaseURL + (upcoming.poster_path ?? "")) else { return }
                         guard let data = try? Data(contentsOf: url) else { return }
                         guard let image = UIImage(data: data) else { return }
             

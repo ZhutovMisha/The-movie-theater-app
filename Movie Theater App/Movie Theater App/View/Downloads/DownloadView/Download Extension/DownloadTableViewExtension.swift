@@ -17,7 +17,7 @@ extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
         return 200
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  DownloadTableViewCell else  { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: downloadViewModel.identifier, for: indexPath) as?  DownloadTableViewCell else  { return UITableViewCell()}
         let item = downloadViewModel.moviesArray[indexPath.row]
         cell.configure(_with: item)
         
@@ -30,7 +30,7 @@ extension DownloadViewController : UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = downloadViewModel.moviesArray[indexPath.row]
-         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: downloadViewModel.storyBoardName, bundle: nil)
         let identifier = String(describing: DetailsViewController.self )
         guard  let viewContoller = storyBoard.instantiateViewController(withIdentifier: identifier) as? DetailsViewController else { return }
         

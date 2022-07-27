@@ -22,9 +22,8 @@ class DownloadTableViewCell: UITableViewCell {
     func configure (_with item : MovieRealm) {
         movieNameLbl.text = item.name
         //MARK: - ERROR, how to fix.
-//        ratingLbl.text = String(item.vote)
         guard let posterPath = item.posterPath else { return }
-        let imageURLString = "https:image.tmdb.org/t/p/w500" + posterPath
+        let imageURLString = Constants.baseURL + posterPath
         guard let imageURL = URL(string: imageURLString) else { return }
         imagePosterPath.sd_setImage(with: imageURL)
         dateLbl.text = item.date

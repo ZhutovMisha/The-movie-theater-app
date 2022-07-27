@@ -8,12 +8,17 @@
 import Foundation
 
 class HomeViewModel {
+    
+    let idetnifier = "cell"
     var type: CollectionType = .movie
     
     var moviesArray : [Movies] = []
     var tvArray : [TV] = []
     var popularArray : [PopularMedia] = []
     var upcomingArray : [UpcomingMedia] = []
+    let storyBoardName = "Main"
+    let categories = ["Trending Movies" , "Trending TV", "Popular", "Top Rated" ]
+
     
     enum CollectionType {
         case movie
@@ -21,4 +26,5 @@ class HomeViewModel {
         case popular
         case upcoming
     }
+    
 }

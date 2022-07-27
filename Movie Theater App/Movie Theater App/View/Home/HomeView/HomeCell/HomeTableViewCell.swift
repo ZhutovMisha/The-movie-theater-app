@@ -34,13 +34,9 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
-    private func testDownload() {
-        APImanager.shared.donwloadTrendingMovies { results in
-            
-        }
-    }
+   
     func downloadMovies() {
-        let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        let url = "\(Constants.baseURL)/3/trending/movie/week?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -59,7 +55,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func downloadTV() {
-        let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        let url = "\(Constants.baseURL)/3/trending/tv/week?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -77,7 +73,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func downloadPopularMedia() {
-        let url = "https://api.themoviedb.org/3/movie/popular?api_key=35ac442f569f30ef7e79254f7511fb2d&language=en-US&page=1"
+        let url = "\(Constants.baseURL)/3/movie/popular?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -98,7 +94,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func downloadUpcomingMedia() {
         
-        let url = "https://api.themoviedb.org/3/movie/upcoming?api_key=35ac442f569f30ef7e79254f7511fb2d&language=en-US&page=1"
+        let url = "\(Constants.baseURL)/3/movie/upcoming?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()

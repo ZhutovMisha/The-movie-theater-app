@@ -13,11 +13,14 @@ class HomeViewController: UIViewController {
     
     
     
+    let homeviewModel = HomeViewModel()
+    
     @IBOutlet weak var videLayer: UIView!
     @IBOutlet weak var homeTapBarItem: UITabBarItem!
     @IBOutlet weak var homeTableView: UITableView!
     
     
+    //MARK: ViewContoller lifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +28,6 @@ class HomeViewController: UIViewController {
         configureNavBar()
         playVideo()
         
-        
-        
-        // Do any additional setup after loading the view
     }
     
     
@@ -36,7 +36,6 @@ class HomeViewController: UIViewController {
     private func setupUI() {
         homeTableView.delegate = self
         homeTableView.dataSource = self
-//        homeTableView.tableHeaderView = setupHeader()
         playVideo()
         overrideUserInterfaceStyle = .dark
         
@@ -44,9 +43,9 @@ class HomeViewController: UIViewController {
     
     private func configureNavBar() {
         
-                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
-                navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
-                                                      UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
+                                              UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white
         
         let appearance = UINavigationBarAppearance()
@@ -65,9 +64,9 @@ class HomeViewController: UIViewController {
         tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBarItem.standardAppearance
     }
     
-
     
-    func playVideo() {
+    
+    private func playVideo() {
         guard let path = Bundle.main.path(forResource: "video", ofType: ".mp4") else { return }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         let playerLayer = AVPlayerLayer(player: player)

@@ -10,4 +10,6 @@ import Foundation
 class HotViewModel {
     public var moviesArray : [Movies] = []
     public var tvArray : [TV] = []
+    let identifier = "cell"
+    let storyBoardName = "Main"
 }

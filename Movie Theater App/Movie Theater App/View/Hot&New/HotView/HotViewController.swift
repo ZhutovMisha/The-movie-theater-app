@@ -8,14 +8,13 @@
 import UIKit
 import Alamofire
 class HotViewController: UIViewController {
-  
     
     @IBOutlet weak var hotTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
     let hotViewModel = HotViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHotController()
@@ -26,7 +25,7 @@ class HotViewController: UIViewController {
     
     func downloadJsonMovies() {
         
-        let url = "https://api.themoviedb.org/3/movie/upcoming?api_key=35ac442f569f30ef7e79254f7511fb2d&language=en-US&page=1"
+        let url = "\(Constants.baseURL)/3/movie/upcoming?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -45,7 +44,7 @@ class HotViewController: UIViewController {
     
     func donwloadTrendingTV() {
         
-        let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
+        let url = "\(Constants.baseURL)/3/trending/tv/week?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -64,7 +63,8 @@ class HotViewController: UIViewController {
     
     private func setupHotController() {
         overrideUserInterfaceStyle = .dark
-        hotTableView.register(nibs, forCellReuseIdentifier: "cell")
+        let nib = UINib(nibName: String(describing: HotTableViewCell.self), bundle: nil)
+        hotTableView.register(nib, forCellReuseIdentifier: "cell")
         hotTableView.delegate = self
         hotTableView.dataSource = self
         segmentedControl.backgroundColor = .white

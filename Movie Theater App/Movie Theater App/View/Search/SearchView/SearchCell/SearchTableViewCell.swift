@@ -18,7 +18,7 @@ class SearchTableViewCell: UITableViewCell {
     
     func configureWith (item : Movies) {
         guard let posterPath = item.poster_path  else { return }
-        let imageURLString  = "https://image.tmdb.org/t/p/w500" + posterPath
+        let imageURLString  = Constants.baseURL + posterPath
         guard let imageURl = URL(string: imageURLString) else { return }
         imagePosterSearch.sd_setImage(with: imageURl)
 

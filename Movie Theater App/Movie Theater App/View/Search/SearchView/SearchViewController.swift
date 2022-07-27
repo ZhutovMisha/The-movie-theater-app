@@ -73,7 +73,7 @@ class SearchViewController: UIViewController {
     
     func downloadJsonMoviesSearch() {
         
-        let url = "https://api.themoviedb.org/3/movie/popular?api_key=35ac442f569f30ef7e79254f7511fb2d&language=en-US&page=1"
+        let url = "\(Constants.baseURL)/3/movie/popular?\(Constants.APIKEY)"
         AF.request(url).responseJSON { response in
             do{
                 let decoder = JSONDecoder()
@@ -84,7 +84,7 @@ class SearchViewController: UIViewController {
                 }
                 
             }catch{
-                print("JSON is missing")
+                print(error.localizedDescription)
             }
         }
         

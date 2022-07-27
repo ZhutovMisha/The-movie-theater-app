@@ -10,6 +10,8 @@ class APImanager {
     private let  baseURL = Constants.baseURL
     private let APIKEY = Constants.APIKEY
     
+    
+    
     private var page : Int = 1
     
     
