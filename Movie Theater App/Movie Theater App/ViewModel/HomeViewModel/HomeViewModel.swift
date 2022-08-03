@@ -7,17 +7,18 @@
 
 import Foundation
 
-class HomeViewModel {
+
+
+    // Model
+public class HomeViewModel {
     
-    let idetnifier = "cell"
     var type: CollectionType = .movie
     
     var moviesArray : [Movies] = []
     var tvArray : [TV] = []
     var popularArray : [PopularMedia] = []
     var upcomingArray : [UpcomingMedia] = []
-    let storyBoardName = "Main"
-    let categories = ["Trending Movies" , "Trending TV", "Popular", "Top Rated" ]
+    
 
     
     enum CollectionType {
@@ -27,4 +28,33 @@ class HomeViewModel {
         case upcoming
     }
     
+    func downloadMovies(completion: @escaping(()-> ())) {
+        APImanager.shared.downloadTrendingMovies { movies in
+            self.moviesArray = movies
+            completion()
+        }
+        
+    }
+    
+    func downloadTV (completion: @escaping(()-> ())) {
+        APImanager.shared.downloadTV { tv in
+            self.tvArray = tv
+            completion()
+            
+        }
+    }
+    
+        func downloadPopular(completion: @escaping(()-> ())) {
+        APImanager.shared.downloadPopularMovies { popular in
+            self.popularArray = popular
+            completion()
+        }
+    }
+    
+    func downloadUpcoming(completion: @escaping(()-> ())) {
+        APImanager.shared.downloadUpcoming { upcoming in
+            self.upcomingArray = upcoming
+            completion()
+        }
+    }
 }

@@ -3,12 +3,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-struct Constants {
-    
-    static let APIKEY = "api_key=35ac442f569f30ef7e79254f7511fb2d"
-    static let baseURL =  "https://api.themoviedb.org"
-    static let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-}
+
 
 class NetworkManager {
     static let shared  = NetworkManager()

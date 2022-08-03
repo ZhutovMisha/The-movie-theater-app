@@ -25,5 +25,13 @@ class SearchViewModel {
         case popular
         case upcoming
     }
+    
+    func downloadMovies (completion: @escaping(()-> ())) {
+        APImanager.shared.downloadTrendingMovies { movies in
+            self.moviesArray     = movies
+            completion()
+            
+        }
+    }
 
 }

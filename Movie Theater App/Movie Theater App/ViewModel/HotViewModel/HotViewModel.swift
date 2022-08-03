@@ -10,6 +10,21 @@ import Foundation
 class HotViewModel {
     public var moviesArray : [Movies] = []
     public var tvArray : [TV] = []
-    let identifier = "cell"
-    let storyBoardName = "Main"
+   
+    
+    func downloadMovies(completion: @escaping (()-> ())) {
+        APImanager.shared.downloadTrendingMovies { movies in
+            self.moviesArray = movies
+            completion()
+        }
+        
+    }
+    
+    func downloadTV (completion: @escaping (()-> ())) {
+        APImanager.shared.downloadTV { tv in
+            self.tvArray = tv
+            completion()
+            
+        }
+    }
 }
