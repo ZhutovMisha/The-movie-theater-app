@@ -1,7 +1,6 @@
-![c54f67eb87181a3e6b628d4865307b65-2-2-2-2](https://user-images.githubusercontent.com/107176820/182782890-af3c441e-7356-43fa-8139-ba03baf2874a.jpg)
-
-
 # 🎥 Movie Theater 🎥
+![movie theater logo-2](https://user-images.githubusercontent.com/107176820/182783352-12078b83-b542-4cd7-9d8e-aeba717f70de.jpg)
+
 ## Movie Theater is an app which provides information in regards to the most popular movies and TVshows
 
 ## Used Technologies
