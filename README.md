@@ -1,5 +1,3 @@
-# The movie theater app
-
 # 🎥 Movie Theater 🎥
 ## Movie thater is an app which provides information in regards to the most popular movies and TVshows
 
