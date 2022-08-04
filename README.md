@@ -1,3 +1,6 @@
+![Eo_circle_red_letter-m svg-2](https://user-images.githubusercontent.com/107176820/182777816-b9e16e5f-f431-4fc5-9628-e8bcc7ff045b.png)
+
+
 # 🎥 Movie Theater 🎥
 ## Movie Theater is an app which provides information in regards to the most popular movies and TVshows
 
@@ -10,11 +13,8 @@
 
 
 
-![Movie_Theater_Preview_AdobeExpress](https://user-images.githubusercontent.com/107176820/182776561-f8663370-51b6-4e4c-83db-7c1468f2dce8.gif)
 
 
 
+https://user-images.githubusercontent.com/107176820/182777603-61fb4af2-a63c-47a3-af62-c5171943f154.mp4
 
-
-![Movie_Theater_Preview_AdobeExpress-2](https://user-images.githubusercontent.com/107176820/182776953-ece2a01b-2228-4b23-81b5-55abbd544165.gif)
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/107176820/182777239-38d4b507-df10-4bf7-9f97-89fba6c28c45.gif)
