@@ -1,4 +1,4 @@
-![Eo_circle_red_letter-m svg-2](https://user-images.githubusercontent.com/107176820/182777816-b9e16e5f-f431-4fc5-9628-e8bcc7ff045b.png)
+![c54f67eb87181a3e6b628d4865307b65](https://user-images.githubusercontent.com/107176820/182781622-69e55910-df14-4d00-83cf-b1c12df0c32c.jpg)
 
 
 # 🎥 Movie Theater 🎥
