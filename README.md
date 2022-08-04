@@ -1,4 +1,4 @@
-![c54f67eb87181a3e6b628d4865307b65-2-2-2](https://user-images.githubusercontent.com/107176820/182782760-7c0b47c5-992b-4638-8bb8-4f4cb89de819.jpg)
+![c54f67eb87181a3e6b628d4865307b65-2-2-2-2](https://user-images.githubusercontent.com/107176820/182782890-af3c441e-7356-43fa-8139-ba03baf2874a.jpg)
 
 
 # 🎥 Movie Theater 🎥
