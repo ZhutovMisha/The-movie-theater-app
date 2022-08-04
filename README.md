@@ -1,5 +1,5 @@
 # 🎥 Movie Theater 🎥
-## Movie thater is an app which provides information in regards to the most popular movies and TVshows
+## Movie Theater is an app which provides information in regards to the most popular movies and TVshows
 
 ## Used Technologies
 #UIKit,
