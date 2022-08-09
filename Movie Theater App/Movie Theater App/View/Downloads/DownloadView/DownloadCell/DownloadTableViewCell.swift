@@ -23,17 +23,12 @@ class DownloadTableViewCell: UITableViewCell {
         movieNameLbl.text = item.name
         //MARK: - ERROR, how to fix.
         guard let posterPath = item.posterPath else { return }
-        let imageURLString = Constants.Network.imageBaseURL + posterPath
+        let imageURLString = Constants.baseURL + posterPath
         guard let imageURL = URL(string: imageURLString) else { return }
         imagePosterPath.sd_setImage(with: imageURL)
         dateLbl.text = item.date
         
     }
    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imagePosterPath.image = nil
-        dateLbl.text = nil
-    }
 
 }

@@ -9,5 +9,6 @@ import Foundation
 
 class DownloadViewModel {
     var moviesArray : [MovieRealm] = []
-
+    let storyBoardName = "Main"
+    let identifier = "cell"
 }

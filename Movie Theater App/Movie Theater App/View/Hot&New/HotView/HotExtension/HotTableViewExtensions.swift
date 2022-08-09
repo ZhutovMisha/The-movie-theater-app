@@ -4,13 +4,20 @@ import UIKit
 
 extension HotViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-       returnMediaCount()
+        switch segmentedControl.selectedSegmentIndex{
+        case 0 :
+            return hotViewModel.moviesArray.count
+            
+        case 1:
+            return hotViewModel.tvArray.count
+        default:
+            return 0
+        }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = hotTableView.dequeueReusableCell(withIdentifier: Constants.identifier, for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
+        guard let cell = hotTableView.dequeueReusableCell(withIdentifier: hotViewModel.identifier, for: indexPath) as? HotTableViewCell else { return UITableViewCell () }
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -31,23 +38,27 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        returnTitle()
+        switch segmentedControl.selectedSegmentIndex{
+        case 0 :    return " ❤️‍🔥 Everyone's Watching  Movies "
+        case 1 : return "🔥 Best TV Shows"
+        default : break
+        }
+        return " ❤️‍🔥 Everyone's Watching "
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(Constants.UI.height)
+        return CGFloat(220)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard(name: Constants.storyBoardName, bundle: nil)
         
         switch segmentedControl.selectedSegmentIndex{
         case 0 :        let movie = hotViewModel.moviesArray[indexPath.row]
-            
+            let storyboard = UIStoryboard(name: hotViewModel.storyBoardName, bundle: nil)
             guard let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else {return }
             viewController.movie = movie
             
             
-            guard let  url = URL(string: Constants.Network.imageBaseURL + (movie.poster_path ?? "0")) else { return }
+            guard let  url = URL(string: Constants.imageBaseURL + (movie.poster_path ?? "0")) else { return }
             guard let data = try? Data(contentsOf: url) else { return }
             guard  let image = UIImage(data: data) else { return }
             
@@ -67,12 +78,12 @@ extension HotViewController : UITableViewDelegate , UITableViewDataSource {
             
             let tv = hotViewModel.tvArray[indexPath.row]
             
-      
+            let storyboard = UIStoryboard(name: hotViewModel.storyBoardName, bundle: nil)
             
             guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailsViewController.self)) as? DetailsViewController else { return }
             
           
-            guard let  url = URL(string: Constants.Network.imageBaseURL + (tv.poster_path ?? "0")) else { return }
+            guard let  url = URL(string: Constants.imageBaseURL + (tv.poster_path ?? "0")) else { return }
             guard let data = try? Data(contentsOf: url) else { return }
             guard  let image = UIImage(data: data) else { return }
             

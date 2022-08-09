@@ -19,7 +19,7 @@ class HotTableViewCell: UITableViewCell {
     }
     func configureWith(item: Movies) {
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.Network.imageBaseURL + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImage.sd_setImage(with: imageURL)
         movieNameLbl.text = item.title ?? item.original_title ?? " Unkown"
@@ -30,16 +30,11 @@ class HotTableViewCell: UITableViewCell {
     func configure (item : TV) {
         movieNameLbl.text = item.original_name ?? item.name ?? ""
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.Network.imageBaseURL + posterPath
+        let imageURLstring = Constants.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImage.sd_setImage(with: imageURL)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        movieNameLbl.text = nil
-        posterImage.image = nil 
-    }
     
     
 }

@@ -7,8 +7,8 @@ class APImanager {
     private let networkManager = NetworkManager.shared
     private init () {}
     
-    private let  baseURL = Constants.Network.baseURL
-    private let APIKEY = Constants.Network.APIKEY
+    private let  baseURL = Constants.baseURL
+    private let APIKEY = Constants.APIKEY
     
     
     
@@ -18,7 +18,7 @@ class APImanager {
 //    func getTrendingMovies(completion: @escaping (Result<[Movies], Error>) -> Void) {
 //    }
     
-    func downloadTrendingMovies (completion: @escaping ([Movies]) -> ()) {
+    func donwloadTrendingMovies (completion: @escaping ([Movies]) -> (Void)) {
         let url = baseURL + "/3/trending/movie/week?" + APIKEY
         
         networkManager.performRequest(url: url) { (data ) in
@@ -36,7 +36,7 @@ class APImanager {
         }
     }
     
-    func downloadTV ( completion : @escaping ([TV]) -> ()) {
+    func downloadTV ( completion : @escaping ([TV]) -> (Void)) {
         
         let url = "https://api.themoviedb.org/3/trending/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
         networkManager.performRequest(url: url) { results  in
@@ -56,15 +56,14 @@ class APImanager {
 
     }
     
-    func downloadUpcoming(completion : @escaping([UpcomingMedia]) ->()) {
-        let url = "\(Constants.Network.baseURL)/3/movie/upcoming?\(Constants.Network.APIKEY)"
+    func downloadUpcoming(completion : @escaping(UpcomingMedia) ->(Void)) {
+        let url = "https://api.themoviedb.org/3/upcoming/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
         networkManager.performRequest(url: url) { results in
             do{
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(UpcomingResults.self, from: results)
                 guard let upcoming = response.results else { return }
-                
-                completion(upcoming)
+//                completion(upcoming)
                 
             }catch{
                 print(error.localizedDescription)
@@ -75,15 +74,15 @@ class APImanager {
 
     }
     
-    func downloadPopularMovies(completion : @escaping ([PopularMedia]) -> (Void)) {
-        let url = "\(Constants.Network.baseURL)/3/movie/popular?\(Constants.Network.APIKEY)"
+    func downloadPopularMovies(completion : @escaping (PopularMedia) -> (Void)) {
+        let url = "https://api.themoviedb.org/3/upcoming/tv/week?api_key=35ac442f569f30ef7e79254f7511fb2d"
         networkManager.performRequest(url: url) { results in
             do{
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(ResultPopular.self, from: results)
                 guard let popular = response.results else { return }
            
-                completion(popular)
+//                completion(popular)
             }catch{
                 print(error.localizedDescription)
                 

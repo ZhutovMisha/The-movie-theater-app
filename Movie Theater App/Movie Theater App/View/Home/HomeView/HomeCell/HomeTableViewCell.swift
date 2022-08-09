@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Alamofire
 
 
 
 class HomeTableViewCell: UITableViewCell {
-    let homeTableViewCellModel = HomeViewModel()
+    let homeContollerViewModel = HomeViewModel()
     
     let networkManager = NetworkManager.shared
     
@@ -33,49 +34,78 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
-    
-    
-    func downloadAllData () {
-        switch self.homeTableViewCellModel.type {
-        case .movie : downloadMovies()
-        case .TV : downloadTV()
-        case .upcoming : downloadUpcoming()
-        case .popular : downloadPopular()
+   
+    func downloadMovies() {
+        let url = "\(Constants.baseURL)/3/trending/movie/week?\(Constants.APIKEY)"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                guard let data = response.data else { return }
+                let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
+                guard let results = allData.results else { return }
+                self.homeContollerViewModel.moviesArray = results
+                DispatchQueue.main.async{
+                    self.homeCollectionView.reloadData()
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
         }
-    }
-    
-    func returnMediaCount() -> Int {
-        switch self.homeTableViewCellModel.type {
-        case .movie : return homeTableViewCellModel.moviesArray.count
-        case .TV : return homeTableViewCellModel.tvArray.count
-        case .popular : return homeTableViewCellModel.popularArray.count
-        case .upcoming : return homeTableViewCellModel.upcomingArray.count
-        }
-    }
-    
-    func downloadMovies () {
-        self.homeTableViewCellModel.downloadMovies {
-            self.homeCollectionView.reloadData()
-        }
+        
     }
     
     func downloadTV() {
-        self.homeTableViewCellModel.downloadTV {
-            self.homeCollectionView.reloadData()
+        let url = "\(Constants.baseURL)/3/trending/tv/week?\(Constants.APIKEY)"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                guard let data = response.data else { return }
+                let allData = try decoder.decode(ResultsTV.self, from: data)
+                guard let results = allData.results else { return }
+                self.homeContollerViewModel.tvArray = results
+                DispatchQueue.main.async{
+                    self.homeCollectionView.reloadData()
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
         }
     }
     
-    func downloadPopular () {
-        self.homeTableViewCellModel.downloadPopular {
-            self.homeCollectionView.reloadData()
-        }
-    }
-    func downloadUpcoming() {
-        self.homeTableViewCellModel.downloadUpcoming {
-            self.homeCollectionView.reloadData()
+    func downloadPopularMedia() {
+        let url = "\(Constants.baseURL)/3/movie/popular?\(Constants.APIKEY)"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                guard let data = response.data  else { return }
+                let allData = try decoder.decode(ResultPopular.self, from: data)
+                guard let results = allData.results else { return }
+                self.homeContollerViewModel.popularArray = results
+                
+                
+                DispatchQueue.main.async{
+                    self.homeCollectionView.reloadData()
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
         }
     }
     
-    
-
+    func downloadUpcomingMedia() {
+        
+        let url = "\(Constants.baseURL)/3/movie/upcoming?\(Constants.APIKEY)"
+        AF.request(url).responseJSON { response in
+            do{
+                let decoder = JSONDecoder()
+                let allData = try decoder.decode(UpcomingResults.self, from: response.data!)
+                self.homeContollerViewModel.upcomingArray = allData.results!
+                DispatchQueue.main.async{
+                    self.homeCollectionView.reloadData()
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

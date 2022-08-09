@@ -57,17 +57,16 @@ class DetailsViewController: UIViewController {
     }
     
     
-    
     @IBAction func saveButtonPressed(_ sender: Any) {
         
-        
+        let alertController = UIAlertController(title: "Saved Movie", message: "Add to watch list", preferredStyle: .alert)
         let saved = DataManager().save(movie)
         let saveAction = UIAlertAction(title: "Save", style: .default)
-        Constants.DetailsViewModel.alertController.addAction(saveAction)
+        alertController.addAction(saveAction)
         let deadline = DispatchTime.now() + 1
-        present(Constants.DetailsViewModel.alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: deadline){
-            Constants.DetailsViewModel.alertController.dismiss(animated: true)
+            alertController.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)
             
             
@@ -93,6 +92,9 @@ class DetailsViewController: UIViewController {
         movieImageView.layer.borderWidth = 1
         movieImageView.layer.borderColor = UIColor.yellow.cgColor
         movieImageView.layer.cornerRadius = 5
+    
+
+        
         
     }
     
