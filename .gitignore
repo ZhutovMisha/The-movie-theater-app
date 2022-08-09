@@ -1,0 +1,25 @@
+
+Movie Theater App/Pods/Realm/core/realm-monorepo.xcframework/ios-arm64_x86_64-maccatalyst/Headers/realm/alloc_slab.hpp
+*.hpp
+Movie Theater App/Pods/Alamofire/LICENSE
+Movie Theater App/Pods/Alamofire/README.md
+*.swift
+*.pbxproj
+*.xcscheme
+*.h
+*.plist
+*.a
+*.mm
+*.m
+*.sh
+*.rb
+*.pch
+*.md
+*.modulemap
+*.markdown
+*.xcconfig
+*.xcfilelist
+*.lock
+Movie Theater App/Pods/SDWebImage/LICENSE
+Movie Theater App/Pods/Realm/LICENSE
+Movie Theater App/Pods/RealmSwift/LICENSE

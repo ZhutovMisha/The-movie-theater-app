@@ -61,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		46D69B77919D427A266C4BCF /* Pods-Movie Theater App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Theater App.release.xcconfig"; path = "Target Support Files/Pods-Movie Theater App/Pods-Movie Theater App.release.xcconfig"; sourceTree = "<group>"; };
-		A240AE5E28A24A0300E41778 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = "../../../../My Projects/Movie Theatver Final V2.0/Movie Theater App/Movie Theater App/Assets.xcassets/video.mp4"; sourceTree = "<group>"; };
+		A240AE5E28A24A0300E41778 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = "Movie Theater App/Assets.xcassets/video.mp4"; sourceTree = "<group>"; };
 		A240AE6028A24D3F00E41778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Movie Theater App/Assets.xcassets"; sourceTree = "<group>"; };
 		A240AE6328A24DC200E41778 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A240AE6928A24E3B00E41778 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewModel.swift; path = "Movie Theater App/ViewModel/OnboardingViewModel/OnboardingViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -134,7 +134,6 @@
 				F0C255CA3B40D1B9346C2D4D /* Pods-Movie Theater App.debug.xcconfig */,
 				46D69B77919D427A266C4BCF /* Pods-Movie Theater App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
