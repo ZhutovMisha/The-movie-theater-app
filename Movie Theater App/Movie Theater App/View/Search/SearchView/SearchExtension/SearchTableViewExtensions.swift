@@ -74,8 +74,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource{
 
 
 private func pushViewController(viewContoller: UIViewController) {
-guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
-rootVC.present(viewContoller, animated: true)
+    if let topVC = UIApplication.getTopViewController() {
+        topVC.navigationController?.pushViewController(viewContoller, animated: true) // present(viewContoller, animated: true)
+    }
 }
 
     

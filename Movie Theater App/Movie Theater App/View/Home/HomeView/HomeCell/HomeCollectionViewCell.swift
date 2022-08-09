@@ -14,7 +14,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     func configureMovie(item: Movies) {
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.imageBaseURL + posterPath
+        let imageURLstring = Constants.Network.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
@@ -27,7 +27,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     func configureTV(item: TV) {
         
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.imageBaseURL + posterPath
+        let imageURLstring = Constants.Network.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
@@ -38,7 +38,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     func configurePopular(item: PopularMedia) {
         
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.imageBaseURL + posterPath
+        let imageURLstring = Constants.Network.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
@@ -50,7 +50,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     func configureUpcoming(item: UpcomingMedia) {
         
         guard let posterPath = item.poster_path else { return }
-        let imageURLstring = Constants.imageBaseURL + posterPath
+        let imageURLstring = Constants.Network.imageBaseURL + posterPath
         guard let imageURL = URL(string: imageURLstring) else { return }
         posterImageView.sd_setImage(with: imageURL)
         posterImageView.layer.cornerRadius = 5
@@ -59,7 +59,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
         
     }
     
-    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+    }
     
     
 }

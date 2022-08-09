@@ -28,6 +28,21 @@ class DownloadViewController: UIViewController {
     private func setupUI() {
         downloadTableView.delegate = self
         downloadTableView.dataSource = self
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        let appearance2 = UITabBarAppearance()
+        appearance2.configureWithOpaqueBackground()
+        appearance2.backgroundColor = .black
+        
+        tabBarController?.tabBar.standardAppearance = appearance2
+        tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBarItem.standardAppearance
     }
     
     private func getMovies() {

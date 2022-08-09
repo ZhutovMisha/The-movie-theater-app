@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import AVFoundation
 
 class HomeViewController: UIViewController {
@@ -43,9 +42,9 @@ class HomeViewController: UIViewController {
     
     private func configureNavBar() {
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "m.circle.fill"), style: .done, target: self, action: nil)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName:"person"), style: .done, target: self, action: nil),
-                                              UIBarButtonItem(image: UIImage(systemName: "play.circle"), style: .done, target: self, action: nil)]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Constants.UI.circleImage), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: Constants.UI.personImage), style: .done, target: self, action: nil),
+                                              UIBarButtonItem(image: UIImage(systemName: Constants.UI.playImage), style: .done, target: self, action: nil)]
         navigationController?.navigationBar.tintColor = .white
         
         let appearance = UINavigationBarAppearance()

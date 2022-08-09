@@ -15,25 +15,25 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: homeviewModel.idetnifier, for: indexPath) as? HomeTableViewCell else {return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.identifier, for: indexPath) as? HomeTableViewCell else {return UITableViewCell() }
         
         
         switch indexPath.section {
         case 0:
-            cell.homeContollerViewModel.type = .movie
+            cell.homeTableViewCellModel.type = .movie
             cell.downloadMovies()
             
         case 1:
-            cell.homeContollerViewModel.type = .TV
+            cell.homeTableViewCellModel.type = .TV
             cell.downloadTV()
         case 2:
-            cell.homeContollerViewModel.type = .popular
-            cell.downloadPopularMedia()
+            cell.homeTableViewCellModel.type = .popular
+            cell.downloadPopular()
             
         case 3:
-            cell.homeContollerViewModel.type = .upcoming
-            cell.downloadUpcomingMedia()
-
+            cell.homeTableViewCellModel.type = .upcoming
+            cell.downloadUpcoming()
+            
         default: break
         }
         
@@ -42,10 +42,10 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return homeviewModel.categories[section]
+        return Constants.HomeViewModel.categories[section]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return homeviewModel.categories.count
+        return Constants.HomeViewModel.categories.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1

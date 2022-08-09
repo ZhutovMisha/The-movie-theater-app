@@ -6,60 +6,43 @@
 //
 
 import UIKit
-import Alamofire
+
 class HotViewController: UIViewController {
     
     @IBOutlet weak var hotTableView: UITableView!
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl! {
+        didSet{
+            segmentedControl.setTitle("Movies", forSegmentAt: 0)
+            segmentedControl.setTitle("TV Shows", forSegmentAt: 1)
+        }
+    }
     
     let hotViewModel = HotViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHotController()
-        downloadJsonMovies()
-        donwloadTrendingTV()
+        downloadMovies()
+        downloadTV()
+        
+        
     }
     
     
-    func downloadJsonMovies() {
-        
-        let url = "\(Constants.baseURL)/3/movie/upcoming?\(Constants.APIKEY)"
-        AF.request(url).responseJSON { response in
-            do{
-                let decoder = JSONDecoder()
-                let allData = try decoder.decode(ResultsMovies.self, from: response.data!)
-                self.hotViewModel.moviesArray = allData.results!
-                DispatchQueue.main.async{
-                    self.hotTableView.reloadData()
-                }
-                
-            }catch{
-                print(error.localizedDescription)
-            }
+    func downloadTV() {
+        self.hotViewModel.downloadTV {
+            self.hotTableView.reloadData()
         }
         
     }
     
-    func donwloadTrendingTV() {
-        
-        let url = "\(Constants.baseURL)/3/trending/tv/week?\(Constants.APIKEY)"
-        AF.request(url).responseJSON { response in
-            do{
-                let decoder = JSONDecoder()
-                let allData = try decoder.decode(ResultsTV.self, from: response.data!)
-                self.hotViewModel.tvArray = allData.results!
-                DispatchQueue.main.async{
-                    self.hotTableView.reloadData()
-                }
-                
-            }catch{
-                print("JSON is missing")
-            }
+    func downloadMovies () {
+        self.hotViewModel.downloadMovies {
+            self.hotTableView.reloadData()
         }
-        
     }
+    
     
     private func setupHotController() {
         overrideUserInterfaceStyle = .dark
@@ -69,16 +52,50 @@ class HotViewController: UIViewController {
         hotTableView.dataSource = self
         segmentedControl.backgroundColor = .white
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        let appearance2 = UITabBarAppearance()
+        appearance2.configureWithOpaqueBackground()
+        appearance2.backgroundColor = .black
+        
+        tabBarController?.tabBar.standardAppearance = appearance2
+        tabBarController?.tabBar.scrollEdgeAppearance = tabBarController?.tabBarItem.standardAppearance
+        
     }
+    
+    func  returnMediaCount() -> Int {
+        switch segmentedControl.selectedSegmentIndex{
+        case 0 : return hotViewModel.moviesArray.count
+        case 1: return hotViewModel.tvArray.count
+            
+        default:
+            return 0
+        }
+    }
+    
+    func returnTitle () -> String  {
+        switch segmentedControl.selectedSegmentIndex{
+            case 0 :    return " ❤️‍🔥 Everyone's Watching  Movies "
+            case 1 : return "🔥 Best TV Shows"
+            default : break
+            }
+            return " ❤️‍🔥 Everyone's Watching "
+        }
     
     
     @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
         
         
         switch sender.selectedSegmentIndex {
-        case 0: downloadJsonMovies()
+        case 0: downloadMovies()
             break
-        case 1: donwloadTrendingTV()
+        case 1: downloadTV()
             
             
         default:
