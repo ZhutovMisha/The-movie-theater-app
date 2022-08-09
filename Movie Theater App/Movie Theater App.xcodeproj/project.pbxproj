@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DEECE4B6218B2130D436B9D /* Pods_Movie_Theater_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA2483B22227B32B9083F77 /* Pods_Movie_Theater_App.framework */; };
 		A240AE5F28A24A2700E41778 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A240AE5E28A24A0300E41778 /* video.mp4 */; };
 		A240AE6128A24D3F00E41778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A240AE6028A24D3F00E41778 /* Assets.xcassets */; };
 		A240AE6528A24DC200E41778 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE6328A24DC200E41778 /* Constants.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46D69B77919D427A266C4BCF /* Pods-Movie Theater App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Theater App.release.xcconfig"; path = "Target Support Files/Pods-Movie Theater App/Pods-Movie Theater App.release.xcconfig"; sourceTree = "<group>"; };
 		A240AE5E28A24A0300E41778 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = "../../../../My Projects/Movie Theatver Final V2.0/Movie Theater App/Movie Theater App/Assets.xcassets/video.mp4"; sourceTree = "<group>"; };
 		A240AE6028A24D3F00E41778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Movie Theater App/Assets.xcassets"; sourceTree = "<group>"; };
 		A240AE6328A24DC200E41778 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		A2FF82602875AD5D003F7F1C /* DataMovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMovieRealm.swift; sourceTree = "<group>"; };
 		A2FF826828771F67003F7F1C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A2FF826C2877275B003F7F1C /* TVJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVJSON.swift; sourceTree = "<group>"; };
+		F0C255CA3B40D1B9346C2D4D /* Pods-Movie Theater App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie Theater App.debug.xcconfig"; path = "Target Support Files/Pods-Movie Theater App/Pods-Movie Theater App.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA2483B22227B32B9083F77 /* Pods_Movie_Theater_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Theater_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +121,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEECE4B6218B2130D436B9D /* Pods_Movie_Theater_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		981FE64BD6CF8E712D612334 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0C255CA3B40D1B9346C2D4D /* Pods-Movie Theater App.debug.xcconfig */,
+				46D69B77919D427A266C4BCF /* Pods-Movie Theater App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A240AE6828A24E1D00E41778 /* OnboardingViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +208,8 @@
 				A287037028621A8900152415 /* Main.storyboard */,
 				A287037528621A8B00152415 /* LaunchScreen.storyboard */,
 				A287036828621A8900152415 /* Products */,
+				981FE64BD6CF8E712D612334 /* Pods */,
+				E7D47FD6DF5EDA9A7E13B92E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -529,6 +546,14 @@
 			path = Upcoming;
 			sourceTree = "<group>";
 		};
+		E7D47FD6DF5EDA9A7E13B92E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBA2483B22227B32B9083F77 /* Pods_Movie_Theater_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -831,6 +856,7 @@
 		};
 		A287037C28621A8B00152415 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0C255CA3B40D1B9346C2D4D /* Pods-Movie Theater App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -858,6 +884,7 @@
 		};
 		A287037D28621A8B00152415 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D69B77919D427A266C4BCF /* Pods-Movie Theater App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

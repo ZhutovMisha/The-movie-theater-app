@@ -31,11 +31,6 @@ struct Constants {
         
        static let cellHeight = 200
         static let titleForHeader = "Saved Movies"
-    
-        
-        
-        
-        static let test = " test"
         
         
         
