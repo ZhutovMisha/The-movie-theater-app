@@ -13,6 +13,9 @@
 		A240AE6A28A24E3B00E41778 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE6928A24E3B00E41778 /* OnboardingViewModel.swift */; };
 		A240AE6D28A24EBE00E41778 /* UIVIew + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE6C28A24EBE00E41778 /* UIVIew + extension.swift */; };
 		A240AE7028A24F3C00E41778 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE6F28A24F3C00E41778 /* OnboardingSlide.swift */; };
+		A240AE7928A252BA00E41778 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE7828A252BA00E41778 /* OnboardingViewController.swift */; };
+		A240AE7D28A2530600E41778 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE7C28A2530600E41778 /* OnboardingCollectionViewCell.swift */; };
+		A240AE7F28A2530C00E41778 /* OnboardingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240AE7E28A2530C00E41778 /* OnboardingExtensions.swift */; };
 		A255938828A2487200CB50D9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A255938728A2487200CB50D9 /* Podfile */; };
 		A287036B28621A8900152415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A287036A28621A8900152415 /* AppDelegate.swift */; };
 		A287036D28621A8900152415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A287036C28621A8900152415 /* SceneDelegate.swift */; };
@@ -65,6 +68,9 @@
 		A240AE6928A24E3B00E41778 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewModel.swift; path = "Movie Theater App/ViewModel/OnboardingViewModel/OnboardingViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		A240AE6C28A24EBE00E41778 /* UIVIew + extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIVIew + extension.swift"; path = "Movie Theater App/System/Common/UIVIew + extension.swift"; sourceTree = SOURCE_ROOT; };
 		A240AE6F28A24F3C00E41778 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingSlide.swift; path = ../OnboardingSlide/OnboardingSlide.swift; sourceTree = "<group>"; };
+		A240AE7828A252BA00E41778 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A240AE7C28A2530600E41778 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		A240AE7E28A2530C00E41778 /* OnboardingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingExtensions.swift; sourceTree = "<group>"; };
 		A255938728A2487200CB50D9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A287036728621A8900152415 /* Movie Theater App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Theater App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A287036A28621A8900152415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +160,32 @@
 			path = OnboardingSlides;
 			sourceTree = "<group>";
 		};
+		A240AE7128A2527E00E41778 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A240AE7828A252BA00E41778 /* OnboardingViewController.swift */,
+				A240AE7B28A252D300E41778 /* OnboardingCell */,
+				A240AE7A28A252BF00E41778 /* OnboardingExtension */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A240AE7A28A252BF00E41778 /* OnboardingExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A240AE7E28A2530C00E41778 /* OnboardingExtensions.swift */,
+			);
+			path = OnboardingExtension;
+			sourceTree = "<group>";
+		};
+		A240AE7B28A252D300E41778 /* OnboardingCell */ = {
+			isa = PBXGroup;
+			children = (
+				A240AE7C28A2530600E41778 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = OnboardingCell;
+			sourceTree = "<group>";
+		};
 		A255938128A2456B00CB50D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +235,7 @@
 		A28703A3286373AB00152415 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A240AE7128A2527E00E41778 /* Onboarding */,
 				A2AA6F1E28858EE900FB64E4 /* Home */,
 				A2AA6F1F28858EF900FB64E4 /* Hot&New */,
 				A2AA6F2028858F1200FB64E4 /* Search */,
@@ -642,6 +675,7 @@
 				A287038228621E8500152415 /* HomeCollectionViewCell.swift in Sources */,
 				A28703AF2866E3DE00152415 /* ResultsMovies.swift in Sources */,
 				A2FF5A05287C256E002E9AD6 /* ResultPopular.swift in Sources */,
+				A240AE7D28A2530600E41778 /* OnboardingCollectionViewCell.swift in Sources */,
 				A2FF826928771F67003F7F1C /* APIManager.swift in Sources */,
 				A28703A1286372F300152415 /* HotTableViewCell.swift in Sources */,
 				A2FF82612875AD5D003F7F1C /* DataMovieRealm.swift in Sources */,
@@ -658,6 +692,7 @@
 				A28703A52863784D00152415 /* SearchViewController.swift in Sources */,
 				A28703B32866F92200152415 /* DetailsViewController.swift in Sources */,
 				A240AE7028A24F3C00E41778 /* OnboardingSlide.swift in Sources */,
+				A240AE7F28A2530C00E41778 /* OnboardingExtensions.swift in Sources */,
 				A2FF5A06287C256F002E9AD6 /* PopularMedia.swift in Sources */,
 				A28703A928637A4600152415 /* SearchTableViewExtensions.swift in Sources */,
 				A240AE6D28A24EBE00E41778 /* UIVIew + extension.swift in Sources */,
@@ -670,6 +705,7 @@
 				A2FF825428748F81003F7F1C /* DownloadTableViewCell.swift in Sources */,
 				A287037F28621E6900152415 /* HomeTableViewCell.swift in Sources */,
 				A287038528621E9E00152415 /* HomeTableViewExtensions.swift in Sources */,
+				A240AE7928A252BA00E41778 /* OnboardingViewController.swift in Sources */,
 				A240AE6A28A24E3B00E41778 /* OnboardingViewModel.swift in Sources */,
 				A287036D28621A8900152415 /* SceneDelegate.swift in Sources */,
 				A2FF824628732704003F7F1C /* ResultsTV.swift in Sources */,
